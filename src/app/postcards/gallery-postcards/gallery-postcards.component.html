@@ -1,0 +1,72 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- <a href="javascript:void(0)" onclick="javascript:genericSocialShare('http://www.facebook.com/sharer.php?u=cubamuseo.net')">[Social Media Share Text/Image]</a>
+                 -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row text-center text-lg-left justify-content-center" style="align-items: center;">
+                            <div class="col-lg-2 col-md-4 col-6" *ngFor="let item of gallery">
+                                <a class="d-block mb-4 h-100" (click)="openModal('custom-modal-1', item)">
+                                    <img class="img-fluid img-thumbnail"
+                                        src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{item.imagen}}/postcards/none"
+                                        alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<jw-modal id="custom-modal-1">
+    <div class="container-fluid center ">
+        <div class="row justify-content-center">
+            <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
+                <i class="material-icons">close</i>
+            </button>
+            <div class="card" style="width: auto;">
+                <div class="card-header card-header-image">
+                    <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+                        style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
+                        <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
+                    </a>
+                    <img class="img-fluid img-thumbnail"
+                        src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{actualItem.imagen}}/postcards/none"
+                        alt="">
+                    <a class="carousel-control-next" (click)="next()" role="button"
+                        style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
+                        <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
+                    </a>
+                </div>
+                <div class="card-body">
+                    <div class="social-btns">
+                        <a class="btn facebook" [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')" target="_blank" >
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a class="btn twitter" [href]="enviromentVariable.getTwitter('',config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a class="btn google" [href]="enviromentVariable.getGooglePlus(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')" target="_blank">
+                            <i class="fa fa-google"></i>
+                        </a>
+                        <a class="btn linkedin" [href]="enviromentVariable.getLinkedIn(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                        </a>
+                        <a class="btn pinteres" [href]="enviromentVariable.getPinterest(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none', '')" target="_blank">
+                            <i class="fa fa-pinterest"></i>
+                        </a>
+
+                        <!-- <a class="btn envelope" [href]="enviromentVariable.getPinterest(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none', '')" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</jw-modal>

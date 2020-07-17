@@ -1,0 +1,197 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card" *ngIf="collection.carpeta">
+                    <div class="card-header card-header-image">
+                        <img src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{collection.imagen}}/collection/{{getSection()}}"
+                            alt="">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="title">
+                            <a class="text-fiord-blue" href="#" [innerHTML]="collection.nombre"></a>
+                        </h5>
+                        <section id="tabs" class="project-tab">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <nav>
+                                            <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"
+                                                style="max-width: 250px;">
+                                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                                                    href="#nav-home" role="tab" aria-controls="nav-home"
+                                                    aria-selected="true">Descripcion</a>
+                                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                                    href="#nav-profile" role="tab" aria-controls="nav-profile"
+                                                    aria-selected="false">Galeria</a>
+                                            </div>
+                                        </nav>
+
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                                aria-labelledby="nav-home-tab">
+
+                                                <p class="card-text d-inline-block mb-3"
+                                                    [innerHTML]="collection.descripcion"></p>
+                                            </div>
+                                            <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                                aria-labelledby="nav-profile-tab">
+                                                <div class="container" style="margin-top: 22px;">
+                                                    <div *ngIf="collection.carpeta" class="row text-center text-lg-left" style="align-items: center;">
+
+                                                        <div  class="col-lg-2 col-md-4 col-6"
+                                                            *ngFor="let item of gallery">
+                                                            <a class="d-block mb-4 h-100"
+                                                                (click)="openModal('custom-modal-1', item)">
+                                                                <img class="img-fluid img-thumbnail"
+                                                                    src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{item.imagen}}/collection/{{getSection()}}"
+                                                                    alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <!-- /.container -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<jw-modal id="custom-modal-1">
+    <div class="main-content">
+        <div class="container-fluid center">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <div class="card" style="max-width: 400px;" *ngIf="collection.carpeta">
+                        <div class="card-header card-header-image">
+                            <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+                                style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
+                                <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
+                            </a>
+                            <div (click)="openModal('custom-modal-zoom')">
+                                <img class="img-fluid img-thumbnail"
+                                    src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{actualItem.imagen}}/collection/{{getSection()}}">
+                            </div>
+
+                            <a class="carousel-control-next" (click)="next()" role="button"
+                                style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
+                                <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="cui_descr_nav" *ngIf="!checkLenght(actualItem.descripcion)">
+                                <p style="text-align:left; line-height:1.6em; color: black; "
+                                    [innerHTML]="actualItem.descripcion">
+                                </p>
+                            </div>
+                            <div class="cui_descr_nav" id="show_div" [class.hidden]="isHide"
+                                *ngIf="checkLenght(actualItem.descripcion)">
+                                <p style="text-align:left; line-height:1.6em; color: black; "
+                                    [innerHTML]="sliceDescription(actualItem.descripcion)">
+                                </p>
+                                <button class="more_text" (click)="see_more()"
+                                    style=" text-align: left; font-size: .9em; color:#5c84b5; background-color: transparent; border-style: hidden;">
+                                    (Ver más)
+                                </button>
+                            </div>
+                            <div class="cui_descr_nav" id="hidden_div" [class.hidden]="!isHide"
+                                *ngIf="checkLenght(actualItem.descripcion)">
+                                <p style="text-align:left; line-height:1.6em; color: black; "
+                                    [innerHTML]="actualItem.descripcion">
+                                </p>
+                                <button class="more_text" (click)="see_more()"
+                                    style="text-align: left; font-size: .9em; color:#5c84b5; background-color: transparent; border-style: hidden;">
+                                    (Ver menos)
+                                </button>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.emision)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black; font-weight: bold;">Emisión:
+                                </span><span style="text-align:left; line-height:1.6em; color: black;"
+                                    [innerHTML]="actualItem.emision"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.color)">
+                                <span style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Color:
+                                </span><span style="text-align:left; line-height:1.6em; color: black;"
+                                    [innerHTML]="actualItem.color"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.material)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Material:</span><span
+                                    style="text-align:left; line-height:1.6em; color: black;"
+                                    [innerHTML]="actualItem.material"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.impresion)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Impresión:
+                                </span><span style="text-align:left; line-height:1.6em;  color: black;"
+                                    [innerHTML]="actualItem.impresion"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.dimension)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Dimensión:
+                                </span><span style="text-align:left; line-height:1.6em;  color: black;"
+                                    [innerHTML]="actualItem.dimension"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.procedencia)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Procedencia:
+                                </span><span style="text-align:left; line-height:1.6em;  color: black;"
+                                    [innerHTML]="actualItem.procedencia"></span>
+                            </div>
+                            <div *ngIf="!checkIfIsEmpty(actualItem.precio)">
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold; ">Precio:
+                                </span><span style="text-align:left; line-height:1.6em;  color: black;"
+                                    [innerHTML]="actualItem.precio"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</jw-modal>
+
+<jw-modal id="custom-modal-zoom">
+    <div class="container-fluid center" style="width: max-content;">
+        <div class="row" style="justify-content: center;">
+            <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-zoom');">
+                <i class="material-icons">close</i>
+            </button>
+            <div class="card" *ngIf="collection.carpeta">
+                <div class="card-header card-header-image">
+                    <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+                        style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
+                        <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
+                    </a>
+                    <img class="img-fluid img-thumbnail"
+                        src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{actualItem.imagen}}/collection/{{getSection()}}"
+                        alt="">
+                    <a class="carousel-control-next" (click)="next()" role="button"
+                        style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
+                        <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</jw-modal>

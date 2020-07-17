@@ -1,0 +1,21 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row text-center text-lg-left justify-content-center" style="align-items: center;">
+
+                            <div class="col-lg-2 col-md-4 col-6" *ngFor="let item of gallery">
+                                <a class="d-block mb-4 h-100" [routerLink]="['/inferior-samples',item.idMuestra]">
+                                    <img class="img-fluid img-thumbnail"
+                                        src="{{config.serverNodeLocation}}images/2/{{item.carpeta}}/{{item.imagenGaleria}}/samples/none" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
