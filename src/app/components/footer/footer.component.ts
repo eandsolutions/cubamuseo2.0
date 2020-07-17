@@ -17,7 +17,7 @@ export class FooterComponent implements OnInit {
   ngOnInit() {
   }
 
-  openModal(id: string, actual: any) {
+  openModal(id: string) {
     this.modalService.open(id);
   }
 
