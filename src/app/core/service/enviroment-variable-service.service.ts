@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { ConfigServiceService } from './config-service.service';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +9,10 @@ export class EnviromentVariableServiceService {
 
   sections: any[];
   link: any;
-  actualPage:string;
-  googlePlus:string = '';
-  Twitter:string = 'http://twitter.com/share?text=[TITLE]&url=[URL]'
-  constructor() {
+  actualPage: string;
+  googlePlus: string = '';
+  Twitter: string = 'http://twitter.com/share?text=[TITLE]&url=[URL]'
+  constructor(public http: HttpClient, private config: ConfigServiceService) {
     this.sections = [];
     this.link = { path: '' };
     this.actualPage = 'collection';
@@ -20,32 +22,32 @@ export class EnviromentVariableServiceService {
     this.sections = sections;
   }
 
-/*   setCategory(category: string) {
-    window.localStorage.setItem('category', category);
-  } */
+  /*   setCategory(category: string) {
+      window.localStorage.setItem('category', category);
+    } */
 
-  getFacebook(url){
-    return 'http://www.facebook.com/sharer.php?u='+url
+  getFacebook(url) {
+    return 'http://www.facebook.com/sharer.php?u=' + url
   }
 
-  getGooglePlus(url:string){
-    return 'https://plus.google.com/share?url='+url;
+  getGooglePlus(url: string) {
+    return 'https://plus.google.com/share?url=' + url;
   }
 
-  getTwitter(title, url){
-    return 'http://twitter.com/share?text='+title+'&url='+url
+  getTwitter(title, url) {
+    return 'http://twitter.com/share?text=' + title + '&url=' + url
   }
 
-  getLinkedIn(url){
-    return 'http://www.linkedin.com/shareArticle?mini=true&url='+url
+  getLinkedIn(url) {
+    return 'http://www.linkedin.com/shareArticle?mini=true&url=' + url
   }
 
-  getPinterest(url, media){
-    return 'http://pinterest.com/pin/create/button/?url='+url+'&media='+media
+  getPinterest(url, media) {
+    return 'http://pinterest.com/pin/create/button/?url=' + url + '&media=' + media
   }
 
-  getMail(subject, body){
-    return 'mailto:?subject='+subject+'&body='+body
+  getMail(subject, body) {
+    return 'mailto:?subject=' + subject + '&body=' + body
   }
 
   setSection(section: any) {
@@ -57,6 +59,10 @@ export class EnviromentVariableServiceService {
     if (window.localStorage.getItem('section'))
       return window.localStorage.getItem('section');
     return 0
+  }
+
+  sendMail(data: any) {
+    return this.http.post(this.config.serverNodeLocation + 'mail', data)
   }
 
   deleteSection() {

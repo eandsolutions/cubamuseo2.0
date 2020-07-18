@@ -10,7 +10,9 @@ export class CollectionServiceService {
   collectionCategoryList: any;
   collectionPagesList: any;
 
-  constructor(public http: HttpClient, private config: ConfigServiceService) {
+  constructor(
+    public http: HttpClient, 
+    private config: ConfigServiceService) {
     this.collectionList = [];
     this.collectionCategoryList = [];
     this.collectionPagesList = [];

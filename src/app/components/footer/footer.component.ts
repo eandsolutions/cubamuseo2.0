@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'app/_modal';
+import { EnviromentVariableServiceService } from 'app/core/service/enviroment-variable-service.service';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-footer',
@@ -7,11 +9,18 @@ import { ModalService } from 'app/_modal';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  test : Date = new Date();
-  
-  
+  test: Date = new Date();
+
+  mail: any = {
+    from: '',
+    subject: '',
+    text: '',
+    name: ''
+  }
+
   constructor(
-    private modalService:ModalService
+    private modalService: ModalService,
+    private enviromentVariableService: EnviromentVariableServiceService
   ) { }
 
   ngOnInit() {
@@ -27,8 +36,15 @@ export class FooterComponent implements OnInit {
     this.modalService.close(id);
   }
 
-  send(){
-
+  send() {
+    this.enviromentVariableService.sendMail(this.mail).subscribe(
+      data => {
+        if (data)
+          alert('Se ha enviado el correo exitosamente')
+      }, err => {
+        alert('Error al enviar el correo')
+      }
+    )
   }
 
 }

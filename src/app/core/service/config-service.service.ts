@@ -6,6 +6,8 @@ import * as Settings from '../../../assets/setting.json';
 })
 export class ConfigServiceService {
 
+
+
   public serverNodeLocation;
   constructor() {
     this.serverNodeLocation = Settings.settings.ServerNodeLocation;
