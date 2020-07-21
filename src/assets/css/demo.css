@@ -83,3 +83,7 @@ p>img {
   color: #43a047;
   font-weight: 500;
 }
+
+.card-text {
+  text-align: justify;
+}

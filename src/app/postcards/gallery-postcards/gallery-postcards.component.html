@@ -9,7 +9,7 @@
                         <div class="row text-center text-lg-left justify-content-center" style="align-items: center;">
                             <div class="col-lg-2 col-md-4 col-6" *ngFor="let item of gallery">
                                 <a class="d-block mb-4 h-100" (click)="openModal('custom-modal-1', item)">
-                                    <img class="img-fluid img-thumbnail"
+                                    <img class="img-fluid img-thumbnail" style =" cursor: pointer" [title]="item.nombre"
                                         src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{item.imagen}}/postcards/none"
                                         alt="">
                                 </a>
@@ -41,6 +41,7 @@
                         style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
                         <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
                     </a>
+                   
                 </div>
                 <div class="card-body">
                     <div class="social-btns">

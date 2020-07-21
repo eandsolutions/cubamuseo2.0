@@ -43,7 +43,7 @@
                                                             *ngFor="let item of gallery">
                                                             <a class="d-block mb-4 h-100"
                                                                 (click)="openModal('custom-modal-1', item)">
-                                                                <img class="img-fluid img-thumbnail"
+                                                                <img class="img-fluid img-thumbnail" style =" cursor: pointer" [title]="item.titulo"
                                                                     src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{item.imagen}}/samples/none"
                                                                     alt="">
                                                             </a>
@@ -83,7 +83,7 @@
                                 style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
                                 <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
                             </a>
-                            <div (click)="openModal('custom-modal-zoom')">
+                            <div (click)="openModal('custom-modal-zoom')" style ="cursor: pointer" [title]="'Imagen.Zoom'|translate">
                                 <img class="img-fluid img-thumbnail"
                                     src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{actualItem.imagen}}/samples/none">
                             </div>
