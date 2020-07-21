@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="title">
-                            <a class="text-fiord-blue" href="#" [innerHTML]="collection.nombre"></a>
+                            <a class="text-fiord-blue" href="#" [innerHTML]="collection.titulo"></a>
                         </h5>
                         <section id="tabs" class="project-tab">
                             <div class="container">
@@ -20,10 +20,10 @@
                                                 style="max-width: 250px;">
                                                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
                                                     href="#nav-home" role="tab" aria-controls="nav-home"
-                                                    aria-selected="true">Descripcion</a>
+                                                    aria-selected="true">{{'TextComponent.Texto'|translate}}</a>
                                                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
                                                     href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                                    aria-selected="false">Galeria</a>
+                                                    aria-selected="false">{{'TextComponent.Galeria'|translate}}</a>
                                             </div>
                                         </nav>
 
@@ -40,7 +40,7 @@
                                                     <div class="row text-center text-lg-left"
                                                         style="align-items: baseline;">
                                                         <div class="row" *ngIf="collection.nombre != ''">
-                                                            <h3 *ngIf="galleryXX.length > 0">Siglo XIX</h3>
+                                                            <h3 *ngIf="galleryXX.length > 0">{{'GalleryComponent.SigloXIX'|translate}}</h3>
                                                             <div class="col-lg-2 col-md-4 col-6"
                                                                 *ngFor="let item of gallery">
                                                                 <a class="d-block mb-4 h-100"
@@ -55,7 +55,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <h3 *ngIf="galleryXX.length > 0">Siglo XX</h3>
+                                                            <h3 *ngIf="galleryXX.length > 0">{{'GalleryComponent.SigloXX'|translate}}</h3>
                                                             <div class="col-lg-2 col-md-4 col-6"
                                                                 *ngFor="let item of galleryXX">
                                                                 <a class="d-block mb-4 h-100"

@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SamplesComponent } from './samples/samples.component';
@@ -11,7 +12,8 @@ import { ModalModule } from 'app/_modal';
   imports: [
     CommonModule,
     RouterModule,
-    ModalModule
+    ModalModule,
+    TranslateModule
   ]
 })
 export class SamplesModule { }

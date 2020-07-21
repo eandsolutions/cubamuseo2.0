@@ -10,7 +10,7 @@ import { RouterModule } from '@angular/router';
   declarations: [GalleryStoreComponent, StoreComponent, ItemSaleStoreComponent],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
   ]
 })
 export class StoreModule { }

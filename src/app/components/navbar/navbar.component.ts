@@ -3,6 +3,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { Router } from '@angular/router';
 import { EnviromentVariableServiceService } from 'app/core/service/enviroment-variable-service.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-navbar',
@@ -21,13 +22,17 @@ export class NavbarComponent implements OnInit {
         location: Location, 
         private element: ElementRef, 
         private router: Router,
-        public enviromentVariable: EnviromentVariableServiceService
+        public enviromentVariable: EnviromentVariableServiceService,
+        public translate: TranslateService
         ) {
         this.location = location;
         this.toggleButton = false;
         this.sidebarVisible = false;
     }
 
+    change(language) {
+        this.translate.use(language);
+      }
     ngOnInit() {
         //this.listTitles = ROUTES.filter(listTitle => listTitle);
         const navbar: HTMLElement = this.element.nativeElement;

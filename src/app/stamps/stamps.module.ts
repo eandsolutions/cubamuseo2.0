@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GalleryStampComponent } from './gallery-stamp/gallery-stamp.component';
@@ -13,7 +14,8 @@ import { ModalModule } from 'app/_modal';
   imports: [
     CommonModule,
     RouterModule,
-    ModalModule
+    ModalModule,
+    TranslateModule
   ]
 })
 export class StampsModule { }

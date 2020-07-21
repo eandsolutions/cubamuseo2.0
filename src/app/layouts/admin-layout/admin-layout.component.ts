@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
 import 'rxjs/add/operator/filter';
@@ -17,7 +18,13 @@ export class AdminLayoutComponent implements OnInit {
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
 
-  constructor( public location: Location, private router: Router) {}
+  constructor( public translate: TranslateService, public location: Location, private router: Router) {
+    translate.addLangs(['en', 'es']);
+    translate.setDefaultLang('es');
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|es/) ? browserLang : 'es');
+
+  }
 
   ngOnInit() {
       const isWindows = navigator.platform.indexOf('Win') > -1 ? true : false;

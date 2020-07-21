@@ -1,3 +1,6 @@
+import { TranslateLoader } from '@ngx-translate/core';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -11,8 +14,13 @@ import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CoreModule } from './core/core.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ModalModule } from './_modal/modal.module'
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
+}
+
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -27,12 +35,25 @@ import { ModalModule } from './_modal/modal.module'
     ModalModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
-    })
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+
+      }
+
+    }),
   ],
+
   declarations: [
     AppComponent,
     AdminLayoutComponent,
 
+  ],
+  exports: [
+    TranslateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

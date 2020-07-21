@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="title">
-                            <a class="text-fiord-blue" href="#" [innerHTML]="collection.nombre"></a>
+                            <a class="text-fiord-blue" href="#" [innerHTML]="collection.titulo"></a>
                         </h5>
                         <section id="tabs" class="project-tab">
                             <div class="container">
@@ -20,10 +20,10 @@
                                                 style="max-width: 250px;">
                                                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
                                                     href="#nav-home" role="tab" aria-controls="nav-home"
-                                                    aria-selected="true">Descripcion</a>
+                                                    aria-selected="true">{{'TextComponent.Texto'|translate}}</a>
                                                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
                                                     href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                                    aria-selected="false">Galeria</a>
+                                                    aria-selected="false">{{'TextComponent.Galeria'|translate}}</a>
                                             </div>
                                         </nav>
 
@@ -106,7 +106,7 @@
                                 </p>
                                 <button class="more_text" (click)="see_more()"
                                     style=" text-align: left; font-size: .9em; color:#5c84b5; background-color: transparent; border-style: hidden;">
-                                    (Ver más)
+                                    ({{'GalleryComponent.SeeMore'|translate}})
                                 </button>
                             </div>
                             <div class="cui_descr_nav" id="hidden_div" [class.hidden]="!isHide"
@@ -116,50 +116,50 @@
                                 </p>
                                 <button class="more_text" (click)="see_more()"
                                     style="text-align: left; font-size: .9em; color:#5c84b5; background-color: transparent; border-style: hidden;">
-                                    (Ver menos)
+                                    ({{'GalleryComponent.SeeLess'|translate}})
                                 </button>
                             </div>
                             <div *ngIf="!checkIfIsEmpty(actualItem.emision)">
                                 <span
-                                    style="text-align:left; line-height:1.6em; color: black; font-weight: bold;">Emisión:
+                                    style="text-align:left; line-height:1.6em; color: black; font-weight: bold;">{{'GalleryComponent.Emision'|translate}}:
                                 </span><span style="text-align:left; line-height:1.6em; color: black;"
                                     [innerHTML]="actualItem.emision"></span>
                             </div>
                             <div *ngIf="!checkIfIsEmpty(actualItem.color)">
-                                <span style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Color:
+                                <span style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Color'|translate}}:
                                 </span><span style="text-align:left; line-height:1.6em; color: black;"
                                     [innerHTML]="actualItem.color"></span>
                             </div>
                             <div *ngIf="!checkIfIsEmpty(actualItem.material)">
                                 <span
-                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Material:</span><span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Material'|translate}}:</span><span
                                     style="text-align:left; line-height:1.6em; color: black;"
                                     [innerHTML]="actualItem.material"></span>
                             </div>
                             <div *ngIf="!checkIfIsEmpty(actualItem.impresion)">
                                 <span
-                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Impresión:
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Impresion'|translate}}:
                                 </span><span style="text-align:left; line-height:1.6em;  color: black;"
                                     [innerHTML]="actualItem.impresion"></span>
                             </div>
                             <div *ngIf="!checkIfIsEmpty(actualItem.dimension)">
                                 <span
-                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Dimensión:
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Dimension'|translate}}:
                                 </span><span style="text-align:left; line-height:1.6em;  color: black;"
                                     [innerHTML]="actualItem.dimension"></span>
                             </div>
                             <div *ngIf="!checkIfIsEmpty(actualItem.procedencia)">
                                 <span
-                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">Procedencia:
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Procedencia'|translate}}:
                                 </span><span style="text-align:left; line-height:1.6em;  color: black;"
                                     [innerHTML]="actualItem.procedencia"></span>
                             </div>
-                            <div *ngIf="!checkIfIsEmpty(actualItem.precio)">
+                            <!-- <div *ngIf="!checkIfIsEmpty(actualItem.precio)">
                                 <span
-                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold; ">Precio:
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold; ">{{'GalleryComponent.Precio'|translate}}:
                                 </span><span style="text-align:left; line-height:1.6em;  color: black;"
                                     [innerHTML]="actualItem.precio"></span>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

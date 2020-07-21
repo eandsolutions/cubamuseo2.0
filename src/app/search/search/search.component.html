@@ -18,7 +18,7 @@
                                         <div class="col-12">
                                             <div class="filter__found">
                                                 <h6><span>{{collectionList.length + modelList.length + stampList.length + vpostList.length + shopList.length}}</span>
-                                                    Artículos encontrados</h6>
+                                                    {{'Search.Results'|translate}}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -27,26 +27,26 @@
                                     <ul class="nav nav-tabs">
                                         <li class="nav-item">
                                             <a (click)="actualTab = 'collection'" class="nav-link active"
-                                                data-toggle="tab" style="color: darkgray;">Colecciones</a>
+                                                data-toggle="tab" style="color: darkgray;">{{'Search.Colecciones'|translate}}</a>
 
                                         </li>
                                         <li class="nav-item">
                                             <a (click)="actualTab = 'model'" class="nav-link" data-toggle="tab"
-                                                style="color: darkgray;">Muestras</a>
+                                                style="color: darkgray;">{{'Menu.Muestras'|translate}}</a>
 
                                         </li>
 
                                         <li class="nav-item">
                                             <a (click)="actualTab = 'stamp'" class="nav-link" data-toggle="tab"
-                                                style="color: darkgray;">Estampas</a>
+                                                style="color: darkgray;">{{'Menu.Estampas'|translate}}</a>
 
                                         </li>
 
-                                        <li class="nav-item">
+                                        <!-- <li class="nav-item">
                                             <a (click)="actualTab = 'shop'" class="nav-link" data-toggle="tab"
                                                 style="color: darkgray;">Tienda</a>
 
-                                        </li>
+                                        </li> -->
                                     </ul>
                                     <div *ngIf="actualTab == 'collection' then collection">
 

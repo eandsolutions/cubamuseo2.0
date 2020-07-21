@@ -35,11 +35,11 @@ import { SearchModule } from 'app/search/search.module'
     PostcardsModule,
     StoreModule,
     SearchModule
-
   ],
   declarations: [
     HomeComponent
-  ]
+  ],
+ 
 })
 
 export class AdminLayoutModule { }

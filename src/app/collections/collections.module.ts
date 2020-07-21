@@ -1,3 +1,4 @@
+import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SuperiorCollectionComponent } from './superior-collection/superior-collection.component';
@@ -10,7 +11,8 @@ import { ModalModule } from 'app/_modal/modal.module';
   imports: [
     CommonModule,
     RouterModule,
-    ModalModule
+    ModalModule,
+    TranslateModule
   ]
 })
 export class CollectionsModule { }
