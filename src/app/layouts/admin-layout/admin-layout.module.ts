@@ -37,7 +37,8 @@ import { SearchModule } from 'app/search/search.module'
     SearchModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    
   ],
  
 })

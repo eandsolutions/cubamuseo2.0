@@ -8,6 +8,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ModalModule } from 'app/_modal';
 import { FormsModule } from '@angular/forms';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 @NgModule({
   imports: [
@@ -20,12 +21,14 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ScrollTopComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    ScrollTopComponent
   ]
 })
 export class ComponentsModule { }
