@@ -38,14 +38,15 @@
                                                 aria-labelledby="nav-profile-tab">
                                                 <div class="container" style="margin-top: 22px;">
                                                     <div *ngIf="collection.carpeta" class="row text-center text-lg-left"
-                                                        style="align-items: center;">
+                                                        style="align-items: flex-end;">
 
-                                                        <div class="col-lg-2 col-md-4 col-6"
+                                                        <div class="col-lg-2 col-md-4 col-6" style="padding: 5px;"
                                                             *ngFor="let item of gallery">
-                                                            <a class="d-block mb-4 h-100"
+                                                            <a class="d-block mb-4 h-100" style="text-align: center;"
                                                                 (click)="openModal('custom-modal-1', item)">
                                                                 <img class="img-fluid img-thumbnail"
-                                                                    style=" cursor: pointer" [title]="item.titulo"
+                                                                    style=" cursor: pointer; max-height: 80px;"
+                                                                    [title]="item.titulo"
                                                                     src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{item.imagen}}/collection/{{getSection()}}"
                                                                     alt="">
                                                             </a>
@@ -83,13 +84,14 @@
                     <div class="card" style="max-width: 650px;padding: 20px;" *ngIf="collection.carpeta">
                         <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
                             style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
-                            <i class="material-icons" style="font-size: xx-large; margin-right: auto;">keyboard_arrow_left</i>
+                            <i class="material-icons"
+                                style="font-size: xx-large; margin-right: auto;">keyboard_arrow_left</i>
                         </a>
                         <div class="card-header card-header-image">
 
-                            <div (click)="openModal('custom-modal-zoom')" style="cursor: pointer"
+                            <div (click)="openModal('custom-modal-zoom')" style="cursor: pointer;text-align: center"
                                 [title]="'Imagen.Zoom'|translate">
-                                <img class="img-fluid img-thumbnail"
+                                <img class="img-fluid img-thumbnail" style="width: auto;"
                                     src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{actualItem.imagen}}/collection/{{getSection()}}">
                             </div>
 
@@ -97,7 +99,8 @@
                         </div>
                         <a class="carousel-control-next" (click)="next()" role="button"
                             style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
-                            <i class="material-icons" style="font-size: xx-large; margin-left: auto;">keyboard_arrow_right</i>
+                            <i class="material-icons"
+                                style="font-size: xx-large; margin-left: auto;">keyboard_arrow_right</i>
                         </a>
                         <div class="card-body">
                             <div class="cui_descr_nav" *ngIf="!checkLenght(actualItem.descripcion)">
