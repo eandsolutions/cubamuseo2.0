@@ -1,3 +1,4 @@
+import { TalesServiceService } from './../../core/service/tales-service.service';
 import { Component, OnInit } from '@angular/core';
 import { CollectionServiceService } from 'app/core/service/collection-service.service';
 import { EnviromentVariableServiceService } from 'app/core/service/enviroment-variable-service.service';
@@ -12,11 +13,13 @@ import { SamplesServiceService } from 'app/core/service/samples-service.service'
 export class StampComponent implements OnInit {
 
   homeData: any;
+  allTales:any[];
   constructor(
     private collectionService: CollectionServiceService,
     public enviromentVariable: EnviromentVariableServiceService,
     public config: ConfigServiceService,
-    private samplesService: SamplesServiceService
+    private samplesService: SamplesServiceService,
+    private talesService: TalesServiceService
   ) { 
     this.homeData = {
       titulo: '',
@@ -24,8 +27,20 @@ export class StampComponent implements OnInit {
       imagen: ''
     } 
     this.enviromentVariable.deleteSection();
+    this.initAllTales();
   }
 
+  initAllTales(){
+    this.talesService.getAllTales().subscribe(
+      (data:any)=>{
+        this.allTales = data;
+        console.log(this.allTales)
+      },err=>{
+
+      }
+    )
+      
+  }
   initSections() {
     this.samplesService.getSamplesCategories().subscribe(
       (data: any[]) => {
