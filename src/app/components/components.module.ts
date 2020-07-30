@@ -9,7 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ModalModule } from 'app/_modal';
 import { FormsModule } from '@angular/forms';
-import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
+import { ScrollTopComponent } from './scroll-top/scroll-top.component';
 
 @NgModule({
   imports: [
@@ -24,13 +24,13 @@ import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    BreadcrumbsComponent
+    ScrollTopComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    BreadcrumbsComponent
+    ScrollTopComponent
   ]
 })
 export class ComponentsModule { }

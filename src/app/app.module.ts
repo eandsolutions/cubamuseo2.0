@@ -54,7 +54,6 @@ export function HttpLoaderFactory(http: HttpClient) {
   declarations: [
     AppComponent,
     AdminLayoutComponent,
-
   ],
   exports: [
     TranslateModule

@@ -40,7 +40,8 @@ import { SearchModule } from 'app/search/search.module'
     MatGridListModule
   ],
   declarations: [
-    HomeComponent
+    HomeComponent,
+    
   ],
  
 })

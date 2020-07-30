@@ -37,13 +37,17 @@
                                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                                 aria-labelledby="nav-profile-tab">
                                                 <div class="container" style="margin-top: 22px;">
-                                                    <div *ngIf="samples.carpeta != ''" class="row text-center text-lg-left justify-content-center">
+                                                    <div *ngIf="samples.carpeta != ''"
+                                                        class="row text-center text-lg-center justify-content-center"
+                                                        style="align-items: flex-end !important;">
 
-                                                        <div class="col-lg-2 col-md-4 col-6"
+                                                        <div class="col-lg-2 col-md-4 col-6" style="padding: 5px;"
                                                             *ngFor="let item of gallery">
-                                                            <a class="d-block mb-4 h-100"
+                                                            <a class="d-block mb-4 h-100" style="text-align: center;"
                                                                 (click)="openModal('custom-modal-1', item)">
-                                                                <img class="img-fluid img-thumbnail" style =" cursor: pointer" [title]="item.titulo"
+                                                                <img class="img-fluid img-thumbnail"
+                                                                    style="cursor: pointer; max-height: 80px;"
+                                                                    [title]="item.titulo"
                                                                     src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{item.imagen}}/samples/none"
                                                                     alt="">
                                                             </a>
@@ -55,6 +59,7 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <label class="firm">Por Luis Días</label>
                                 </div>
                             </div>
                         </section>
@@ -72,27 +77,32 @@
     <div class="main-content">
         <div class="container-fluid center">
             <div class="row">
-                
+
                 <div class="col-md-12">
                     <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
                         <i class="material-icons">close</i>
                     </button>
-                    <div class="card" *ngIf="samples.carpeta != ''" style="max-width: 600px;">
+                    <div class="card" *ngIf="samples.carpeta != ''" style="max-width: 650px; padding: 20px;">
+                        <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+                            style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
+                            <i class="material-icons"
+                                style="font-size: xx-large; margin-right: auto;">keyboard_arrow_left</i>
+                        </a>
                         <div class="card-header card-header-image">
-                            <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
-                                style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
-                                <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
-                            </a>
-                            <div (click)="openModal('custom-modal-zoom')" style ="cursor: pointer" [title]="'Imagen.Zoom'|translate">
-                                <img class="img-fluid img-thumbnail"
+
+                            <div (click)="openModal('custom-modal-zoom')" style="cursor: pointer; text-align: center;"
+                                [title]="'Imagen.Zoom'|translate">
+                                <img class="img-fluid img-thumbnail" style="width: auto;"
                                     src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{actualItem.imagen}}/samples/none">
                             </div>
 
-                            <a class="carousel-control-next" (click)="next()" role="button"
-                                style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
-                                <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
-                            </a>
+
                         </div>
+                        <a class="carousel-control-next" (click)="next()" role="button"
+                            style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
+                            <i class="material-icons"
+                                style="font-size: xx-large; margin-left: auto;">keyboard_arrow_right</i>
+                        </a>
                         <div class="card-body">
                             <div class="cui_descr_nav" *ngIf="!checkLenght(actualItem.descripcion)">
                                 <p style="text-align:left; line-height:1.6em; color: black; "
@@ -126,7 +136,8 @@
                                     [innerHTML]="actualItem.emision"></span>
                             </div>
                             <div *ngIf="!checkIfIsEmpty(actualItem.color)">
-                                <span style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Color'|translate}}:
+                                <span
+                                    style="text-align:left; line-height:1.6em; color: black;font-weight: bold;">{{'GalleryComponent.Color'|translate}}:
                                 </span><span style="text-align:left; line-height:1.6em; color: black;"
                                     [innerHTML]="actualItem.color"></span>
                             </div>
@@ -175,21 +186,23 @@
             <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-zoom');">
                 <i class="material-icons">close</i>
             </button>
-            <div class="card" *ngIf="samples.carpeta != ''" style="width: max-content;">
-                <div class="card-header card-header-image">
-                    <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
-                        style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
-                        <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
-                    </a>
+            <div class="card" *ngIf="samples.carpeta != ''" style="width: max-content; padding: 40px;">
+                <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+                    style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
+                    <i class="material-icons" style="font-size: xx-large;margin-right: auto;">keyboard_arrow_left</i>
+                </a>
+                <div class="card-header card-header-image" style="margin-top: 0;">
+
                     <img class="img-fluid img-thumbnail"
                         src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{actualItem.imagen}}/samples/none"
                         alt="">
-                    <a class="carousel-control-next" (click)="next()" role="button"
-                        style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
-                        <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
-                    </a>
+
                 </div>
+                <a class="carousel-control-next" (click)="next()" role="button"
+                    style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
+                    <i class="material-icons" style="font-size: xx-large; margin-left: auto;">keyboard_arrow_right</i>
+                </a>
             </div>
         </div>
-    </div>  
+    </div>
 </jw-modal>
