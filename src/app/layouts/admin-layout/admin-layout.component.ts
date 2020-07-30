@@ -1,3 +1,4 @@
+import { EnviromentVariableServiceService } from './../../core/service/enviroment-variable-service.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy, PopStateEvent } from '@angular/common';
@@ -17,6 +18,7 @@ export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
+
 
   constructor( public translate: TranslateService, public location: Location, private router: Router) {
     translate.addLangs(['en', 'es']);
@@ -134,6 +136,7 @@ export class AdminLayoutComponent implements OnInit {
               $sidebar_responsive.css('background-image','url("' + new_image + '")');
           }
       });
+      
   }
   ngAfterViewInit() {
       this.runOnRouteChange();

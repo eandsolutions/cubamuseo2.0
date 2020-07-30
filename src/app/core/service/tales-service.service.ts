@@ -38,4 +38,8 @@ export class TalesServiceService {
     return this.http.get(this.config.serverNodeLocation + 'clasification-stamp/byCategory/' + id);
   }
 
+  getAllTales(){
+    return this.http.get(this.config.serverNodeLocation + 'stamp/');
+  }
+
 }

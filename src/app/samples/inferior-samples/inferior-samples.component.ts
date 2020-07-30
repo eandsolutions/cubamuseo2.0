@@ -61,6 +61,17 @@ export class InferiorSamplesComponent implements OnInit {
 
               this.initGalery();
               this.enviromentVariable.actualPage = 'samples';
+              this.enviromentVariable.sections = [];
+              this.enviromentVariable.sections.push({
+                idCategoriaEstampa: 0,
+                nombre: 'Todas',
+                imagenMenu: 'todas.jpg',
+                descripcion: '',
+                publicada: 1,
+                orden: ''
+
+
+              });
               this.initSections();
             }, err => {
 
@@ -77,7 +88,9 @@ export class InferiorSamplesComponent implements OnInit {
   initSections() {
     this.samplesService.getSamplesCategories().subscribe(
       (data: any[]) => {
-        this.enviromentVariable.sections = data;
+        data.forEach(element => {
+          this.enviromentVariable.sections.push(element);
+        });
         this.enviromentVariable.link = { path: '/gallery-samples' }
       }, err => {
         console.log(err)
@@ -109,7 +122,7 @@ export class InferiorSamplesComponent implements OnInit {
     for (let i = 0; i < this.gallery.length; i++) {
       const element = this.gallery[i];
       if (element.idItem == this.actualItem.idItem) {
-        if (i+1 < this.gallery.length)
+        if (i + 1 < this.gallery.length)
           this.actualItem = this.gallery[i + 1];
         else {
           this.actualItem = this.gallery[0]
@@ -126,7 +139,7 @@ export class InferiorSamplesComponent implements OnInit {
         if (i > 0)
           this.actualItem = this.gallery[i - 1];
         else {
-          this.actualItem = this.gallery[this.gallery.length -1]
+          this.actualItem = this.gallery[this.gallery.length - 1]
         }
         break;
       }

@@ -12,12 +12,14 @@ import { SamplesServiceService } from 'app/core/service/samples-service.service'
 export class SamplesComponent implements OnInit {
 
   homeData: any;
+  allSamples: any[];
   constructor(
     private collectionService: CollectionServiceService,
     public enviromentVariable: EnviromentVariableServiceService,
     public config: ConfigServiceService,
     private samplesService: SamplesServiceService
   ) { 
+    this.allSamples=[];
     this.homeData = {
       titulo: '',
       descripcion: '',
@@ -25,13 +27,27 @@ export class SamplesComponent implements OnInit {
     }
     
     this.enviromentVariable.deleteSection();
+    this.initAllSamples();
+  }
+
+  initAllSamples(){
+    this.samplesService.getAllSamples().subscribe(
+      (data:any)=>{
+        this.allSamples = data;
+        console.log(this.allSamples)
+      },err=>{
+
+      }
+    )
+      
   }
 
   initSections() {
     this.samplesService.getSamplesCategories().subscribe(
       (data: any[]) => {
-        this.enviromentVariable.sections = data;
-
+        data.forEach(element => {
+          this.enviromentVariable.sections.push(element);
+        });
         console.log(this.enviromentVariable.sections)
         this.enviromentVariable.link = { path: '/gallery-samples' }
       }, err => {
@@ -56,6 +72,17 @@ export class SamplesComponent implements OnInit {
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'samples'
+    this.enviromentVariable.sections=[];
+    this.enviromentVariable.sections.push({
+      idCategoriaEstampa:0,
+      nombre:'Todas',
+      imagenMenu:'todas.jpg',
+      descripcion:'',
+      publicada:1,
+      orden:''
+
+
+    });
     this.initSections();
     this.initComponent();
   }

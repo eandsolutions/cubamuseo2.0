@@ -77,5 +77,5 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'item-sale-store/:id', component: ItemSaleStoreComponent },
     { path: 'search/:query', component: SearchComponent },
 
-    
+
 ];

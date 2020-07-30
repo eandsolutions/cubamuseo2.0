@@ -54,7 +54,9 @@ export class InferiorStampComponent implements OnInit {
   initSections() {
     this.samplesService.getSamplesCategories().subscribe(
       (data: any[]) => {
-        this.enviromentVariable.sections = data;
+        data.forEach(element => {
+          this.enviromentVariable.sections.push(element);
+        });
         this.enviromentVariable.link = { path: '/gallery-stamp' }
       }, err => {
         console.log(err)
@@ -64,6 +66,17 @@ export class InferiorStampComponent implements OnInit {
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'stamps';
+    this.enviromentVariable.sections=[];
+    this.enviromentVariable.sections.push({
+      idCategoriaEstampa:0,
+      nombre:'Todas',
+      imagenMenu:'todas.jpg',
+      descripcion:'',
+      publicada:1,
+      orden:''
+
+
+    });
     this.initSections();
   }
 

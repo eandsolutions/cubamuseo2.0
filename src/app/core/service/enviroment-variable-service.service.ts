@@ -11,12 +11,15 @@ export class EnviromentVariableServiceService {
   link: any;
   actualPage: string;
   googlePlus: string = '';
-  Twitter: string = 'http://twitter.com/share?text=[TITLE]&url=[URL]'
+  Twitter: string = 'http://twitter.com/share?text=[TITLE]&url=[URL]';
+
   constructor(public http: HttpClient, private config: ConfigServiceService) {
     this.sections = [];
     this.link = { path: '' };
     this.actualPage = 'collection';
   }
+
+  
 
   setSections(sections: any[]) {
     this.sections = sections;

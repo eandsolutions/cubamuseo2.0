@@ -1,3 +1,4 @@
+import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -8,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ModalModule } from 'app/_modal';
 import { FormsModule } from '@angular/forms';
+import { BreadcrumbsComponent } from './breadcrumbs/breadcrumbs.component';
 
 @NgModule({
   imports: [
@@ -15,17 +17,20 @@ import { FormsModule } from '@angular/forms';
     RouterModule,
     ModalModule,
     FormsModule,
-    TranslateModule
+    TranslateModule,
+    BreadcrumbModule
   ],
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    BreadcrumbsComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    BreadcrumbsComponent
   ]
 })
 export class ComponentsModule { }

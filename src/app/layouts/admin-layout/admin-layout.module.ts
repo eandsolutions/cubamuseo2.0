@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -9,6 +10,7 @@ import { MatRippleModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { HomeComponent } from 'app/home/home.component';
 import { CollectionsModule } from 'app/collections/collections.module';
 import { SamplesModule } from 'app/samples/samples.module';
@@ -34,7 +36,8 @@ import { SearchModule } from 'app/search/search.module'
     StampsModule,
     PostcardsModule,
     StoreModule,
-    SearchModule
+    SearchModule,
+    MatGridListModule
   ],
   declarations: [
     HomeComponent

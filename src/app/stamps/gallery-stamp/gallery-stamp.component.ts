@@ -33,21 +33,35 @@ export class GalleryStampComponent implements OnInit {
   }
 
   initGallery(id:number){
-    this.talesService.getTalesByCategory(id).subscribe(
-      (data:any)=>{
-        this.gallery = data;
-        console.log(this.gallery)
-      },err=>{
-
-      }
-    )
+    if(id==0){
+      this.talesService.getAllTales().subscribe(
+        (data:any)=>{
+          this.gallery = data;
+          console.log(this.gallery)
+        },err=>{
+  
+        }
+      )
+    }
+    else{
+      this.talesService.getTalesByCategory(id).subscribe(
+        (data:any)=>{
+          this.gallery = data;
+          console.log(this.gallery)
+        },err=>{
+  
+        }
+      )
+    }
+   
   }
 
   initSections() {
     this.samplesService.getSamplesCategories().subscribe(
       (data: any[]) => {
-        this.enviromentVariable.sections = data;
-
+        data.forEach(element => {
+          this.enviromentVariable.sections.push(element);
+        });
         console.log(this.enviromentVariable.sections)
         this.enviromentVariable.link = { path: '/gallery-stamp' }
       }, err => {
@@ -58,6 +72,15 @@ export class GalleryStampComponent implements OnInit {
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'stamps';
+    this.enviromentVariable.sections=[];
+    this.enviromentVariable.sections.push({
+      idCategoriaEstampa:0,
+      nombre:'Todas',
+      imagenMenu:'todas.jpg',
+      descripcion:'',
+      publicada:1,
+      orden:''
+    });
     this.initSections();
   }
 

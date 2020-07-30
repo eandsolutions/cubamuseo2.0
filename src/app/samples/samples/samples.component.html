@@ -8,9 +8,18 @@
                     </div>
                     <div class="card-body">
                         <h5 class="title col text-center">
-                            <a class="text-fiord-blue" href="#" >{{homeData.titulo}}</a>
+                            <a class="text-fiord-blue" href="#">{{homeData.titulo}}</a>
                         </h5>
                         <p class="card-text d-inline-block mb-3" [innerHTML]="homeData.descripcion"></p>
+                        <div class="col-md-6" *ngFor="let samples of allSamples">
+                            <a class="nav-link"
+                                [routerLink]="['/inferior-samples',samples.idMuestra]">
+                                 <h6 [innerHTML]="samples.nombre">
+                                     
+                                 </h6>
+                            </a>
+
+                        </div>
                     </div>
                 </div>
             </div>

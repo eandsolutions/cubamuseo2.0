@@ -31,21 +31,36 @@ export class GallerySamplesComponent implements OnInit {
   }
 
   initGallery(id:number){
-    this.samplesService.getSamplesCategory(id).subscribe(
-      (data:any)=>{
-        this.gallery = data;
-        console.log(this.gallery)
-      },err=>{
+    if(id==0){
+      this.samplesService.getAllSamples().subscribe(
+        (data:any)=>{
+          this.gallery = data;
+          console.log(this.gallery)
+        },err=>{
+  
+        }
+      )
+    }
+    else{
+      this.samplesService.getSamplesCategory(id).subscribe(
+        (data:any)=>{
+          this.gallery = data;
+          console.log(this.gallery)
+        },err=>{
+  
+        }
+      )
+    }
 
-      }
-    )
+    
   }
 
   initSections() {
     this.samplesService.getSamplesCategories().subscribe(
       (data: any[]) => {
-        this.enviromentVariable.sections = data;
-
+        data.forEach(element => {
+          this.enviromentVariable.sections.push(element);
+        });
         console.log(this.enviromentVariable.sections)
         this.enviromentVariable.link = { path: '/gallery-samples' }
       }, err => {
@@ -56,6 +71,17 @@ export class GallerySamplesComponent implements OnInit {
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'samples';
+    this.enviromentVariable.sections=[];
+    this.enviromentVariable.sections.push({
+      idCategoriaEstampa:0,
+      nombre:'Todas',
+      imagenMenu:'todas.jpg',
+      descripcion:'',
+      publicada:1,
+      orden:''
+
+
+    });
     this.initSections();
   }
 
