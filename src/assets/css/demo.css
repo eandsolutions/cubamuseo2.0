@@ -16,6 +16,10 @@
 
 */
 
+.main-content .container-fluid .row {
+  min-width: 800px;
+}
+
 .container-fluid{
   display: flex;
   justify-content: center;
