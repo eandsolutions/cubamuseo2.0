@@ -16,14 +16,11 @@
 
 */
 
-a .img-thumbnail{
-  border-radius: 0;
-  border: none;
-}
 .container-fluid{
   display: flex;
   justify-content: center;
 }
+
 
 .col-md-12{
   display: block;
@@ -71,8 +68,7 @@ p span {
 }
 
 p>img {
-  width: 80%;
-  margin-left: 10%;
+  width: 100%;
 }
 
 .project-tab .nav-link {

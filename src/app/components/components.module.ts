@@ -1,4 +1,4 @@
-import { BreadcrumbModule } from 'primeng/breadcrumb';
+//import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,7 +18,7 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     ModalModule,
     FormsModule,
     TranslateModule,
-    BreadcrumbModule
+    //BreadcrumbModule
   ],
   declarations: [
     FooterComponent,
