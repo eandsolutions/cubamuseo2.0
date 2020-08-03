@@ -13,6 +13,7 @@ export class GallerySamplesComponent implements OnInit {
 
   gallery:any[];
   id:number;
+
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
@@ -27,6 +28,7 @@ export class GallerySamplesComponent implements OnInit {
           this.initGallery(data.id)
         }
       }
+      
     )
   }
 

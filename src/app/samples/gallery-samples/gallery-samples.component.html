@@ -5,12 +5,16 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="row text-center text-lg-left justify-content-center" style="align-items: center;">
-
+                            <h5 class="title">
+                                <a class="text-fiord-blue" [innerHTML]=""></a>
+                            </h5>
                             <div class="col-lg-2 col-md-4 col-6"  *ngFor="let item of gallery">
                                 <a class="d-block mb-4 h-100" [routerLink]="['/inferior-samples',item.idMuestra]">
                                     <img class="img-fluid img-thumbnail" 
                                         src="{{config.serverNodeLocation}}images/2/{{item.carpeta}}/{{item.imagenGaleria}}/samples/none" alt="">
                                 </a>
+                                <p [innerHTML]="item.nombre"
+                                 style="font-size: smaller; text-align: center;"></p>
                             </div>
                         </div>
                     </div>
