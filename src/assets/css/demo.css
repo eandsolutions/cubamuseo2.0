@@ -16,8 +16,14 @@
 
 */
 
+.row{
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .main-content .container-fluid .row {
   max-width: 900px;
+  width: inherit;
 }
 
 .container-fluid{
@@ -33,6 +39,16 @@
 
 .card {
   max-width: 860px;
+}
+
+.card-body {
+  align-self: center;
+  width: inherit;
+}
+
+.project-tab{
+  padding-left: 0!important;
+  padding-right: 0!important;
 }
 
 .firm{
@@ -69,11 +85,22 @@ p span {
     width: 100% !important;
     margin-left: 0px !important;
   }
+  .container-fluid{
+    padding: 0;
+  }
+  .col-md-12{
+    padding: 0;
+  }
+
+  .main-content .container-fluid .row {
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
 
 @media (min-width: 900px) {
   .card-body{
-    min-width: 750px;
+    max-width: 750px;
   }
 }
 

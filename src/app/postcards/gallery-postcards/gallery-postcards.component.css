@@ -6,9 +6,11 @@
   -webkit-transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
           transition-timing-function: cubic-bezier(0.31, -0.105, 0.43, 1.59);
 }
+.social-btns a i {
+  margin-left: -13px;
+}
 .social-btns .btn:before {
   top: 90%;
-  left: -110%;
 }
 .social-btns .btn .fa {
   -webkit-transform: scale(0.8);
@@ -77,10 +79,10 @@
 .social-btns .btn {
   display: inline-block;
   background-color: #fff;
-  width: 90px;
+  width: 35px;
   height: 90px;
   line-height: 90px;
-  margin: 0 10px;
+  margin: 0 5px;
   text-align: center;
   position: relative;
   overflow: hidden;

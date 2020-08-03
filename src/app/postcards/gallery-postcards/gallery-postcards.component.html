@@ -9,7 +9,7 @@
                         <div class="row text-center text-lg-left justify-content-center" style="align-items: center;">
                             <div class="col-lg-2 col-md-4 col-6" *ngFor="let item of gallery">
                                 <a class="d-block mb-4 h-100" (click)="openModal('custom-modal-1', item)">
-                                    <img class="img-fluid img-thumbnail" style =" cursor: pointer" [title]="item.nombre"
+                                    <img class="img-fluid img-thumbnail" style =" cursor: pointer; max-height: 80px;" [title]="item.nombre"
                                         src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{item.imagen}}/postcards/none"
                                         alt="">
                                 </a>
@@ -43,7 +43,7 @@
                     </a>
                    
                 </div>
-                <div class="card-body">
+                <div class="card-body" style="width: 100%;">
                     <div class="social-btns">
                         <a class="btn facebook" [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')" target="_blank" >
                             <i class="fa fa-facebook"></i>
