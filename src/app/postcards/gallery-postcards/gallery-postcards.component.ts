@@ -14,6 +14,7 @@ export class GalleryPostcardsComponent implements OnInit {
 
   gallery: any[];
   actualItem: any;
+  section:any;
 
   constructor(
     public config: ConfigServiceService,
@@ -30,6 +31,8 @@ export class GalleryPostcardsComponent implements OnInit {
       data => {
         if (data.id) {
           this.initGallery(data.id)
+          this.section = JSON.parse(window.localStorage.getItem('section'));
+          
         }
       }
     )

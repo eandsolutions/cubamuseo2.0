@@ -6,6 +6,9 @@
                  -->
                 <div class="card">
                     <div class="card-body">
+                        <h5 class="title  col text-center" >
+                            <a class="text-fiord-blue" style="color: #66bb6a;" [innerHTML]="section.nombre"></a>
+                        </h5>
                         <div class="row text-center text-lg-left justify-content-center" style="align-items: center;">
                             <div class="col-lg-2 col-md-4 col-6" *ngFor="let item of gallery">
                                 <a class="d-block mb-4 h-100" (click)="openModal('custom-modal-1', item)">

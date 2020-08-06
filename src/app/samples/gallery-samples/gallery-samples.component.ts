@@ -13,6 +13,7 @@ export class GallerySamplesComponent implements OnInit {
 
   gallery:any[];
   id:number;
+  section:any;
 
   constructor(
     public config: ConfigServiceService,
@@ -26,6 +27,7 @@ export class GallerySamplesComponent implements OnInit {
         if(data.id){
           this.id = data.id;
           this.initGallery(data.id)
+          this.section = JSON.parse(window.localStorage.getItem('section'));
         }
       }
       

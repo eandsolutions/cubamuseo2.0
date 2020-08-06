@@ -14,6 +14,8 @@ export class GalleryStampComponent implements OnInit {
 
   gallery:any[];
   id:number;
+  section:any;
+
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
@@ -27,6 +29,7 @@ export class GalleryStampComponent implements OnInit {
         if(data.id){
           this.id = data.id;
           this.initGallery(data.id)
+          this.section = JSON.parse(window.localStorage.getItem('section'));
         }
       }
     )

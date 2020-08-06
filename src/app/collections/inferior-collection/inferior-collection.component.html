@@ -35,7 +35,7 @@
                                                     [innerHTML]="collection.descripcion"></p>
                                                     <div style="display: block; text-align: center;">
                                                         <div>
-                                                            <label>Texto e imágenes: Luis Días Mijares</label>
+                                                            <label>{{'Derechos.PiePagina'|translate}}</label>
                                                         </div>
                                                         <div>
                                                             <img src="assets/img/Final.png" alt="">
@@ -89,7 +89,7 @@
                     <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
                         <i class="material-icons">close</i>
                     </button>
-                    <div class="card" style="max-width: 650px;padding: 20px;" *ngIf="collection.carpeta">
+                    <div class="card" style="max-width: 500px;padding: 20px;" *ngIf="collection.carpeta">
                         <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
                             style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
                             <i class="material-icons"

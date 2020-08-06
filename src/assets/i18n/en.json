@@ -35,7 +35,8 @@
         "Tienda":"Store"
     },
     "Derechos":{
-        "Derechos":"All right reserved | Development and Design"
+        "Derechos":"All right reserved | Development and Design",
+        "PiePagina":"Text and Images: Luis Días Mijares"
     },
     "AD":{
         "Item":"Item",
