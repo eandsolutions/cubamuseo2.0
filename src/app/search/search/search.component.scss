@@ -9,6 +9,7 @@
 
 .vgr-cards {
     .card {
+        padding: 5px;
         display: flex;
         flex-flow: wrap;
         flex: 100%;
@@ -71,5 +72,7 @@
 }
 
 .nav-tabs{
-    background: #8a2be2c9;
+    background: #f44336c7;
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(244, 67, 54, 0.4);
+
 }
