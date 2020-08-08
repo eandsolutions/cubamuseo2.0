@@ -17,13 +17,13 @@
                                     <div class="col-md-12">
                                         <nav>
                                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"
-                                                style="max-width: 250px;">
+                                                style="max-width: 300px;">
                                                 <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
                                                     href="#nav-home" role="tab" aria-controls="nav-home"
                                                     aria-selected="true">{{'TextComponent.Texto'|translate}}</a>
                                                 <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
                                                     href="#nav-profile" role="tab" aria-controls="nav-profile"
-                                                    aria-selected="false">{{'TextComponent.Galeria'|translate}}</a>
+                                                    aria-selected="false">{{'TextComponent.InferiorGallery'|translate}}</a>
                                             </div>
                                         </nav>
 
@@ -47,8 +47,8 @@
                                                 aria-labelledby="nav-profile-tab">
                                                 <div class="container" style="margin-top: 22px;">
                                                     <div *ngIf="samples.carpeta != ''"
-                                                        class="row text-center text-lg-center justify-content-center"
-                                                        style="align-items: flex-end !important;">
+                                                        class="row text-center text-lg-left justify-content-center"
+                                                        style="align-items: baseline;">
 
                                                         <div class="col-lg-2 col-md-4 col-6" style="padding: 5px;"
                                                             *ngFor="let item of gallery">
@@ -60,6 +60,8 @@
                                                                     src="{{config.serverNodeLocation}}images/2/{{samples.carpeta}}/{{item.imagen}}/samples/none"
                                                                     alt="">
                                                             </a>
+                                                            <p [innerHTML]="item.nombre"
+                                                            style="font-size: smaller; text-align: center;"></p>
                                                         </div>
                                                     </div>
 

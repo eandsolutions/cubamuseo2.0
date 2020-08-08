@@ -50,7 +50,8 @@
     },
     "TextComponent":{
         "Texto":"Desripción",
-        "Galeria":"Galería"
+        "SuperiorGallery":"Galería de Páginas",
+        "InferiorGallery":"Galería de Imágenes"
     },
     "GalleryComponent":{
         "Emision":"Emisión",

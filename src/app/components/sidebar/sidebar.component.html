@@ -25,7 +25,7 @@
       [ngClass]="{'nav-item active': getSection().idSeccion === section.idSeccion}">
       <a class="nav-link" href="index.html" [routerLink]="[enviromentVariables.link.path,section.idSeccion]"
         (click)='setSection(section)'>
-        <img
+        <img style="width: 60px;"
           src="{{config.serverNodeLocation}}images/imageForCategory/{{section.imagenMenu}}/{{enviromentVariables.actualPage}}"
           alt="">
         <span [innerHTML]="section.nombre"></span>
@@ -38,7 +38,7 @@
       [ngClass]="{'nav-item active': getSection().idCategoriaEstampa === section.idCategoriaEstampa}">
       <a class="nav-link" href="index.html" [routerLink]="[enviromentVariables.link.path,section.idCategoriaEstampa]"
         (click)='setSection(section)'>
-        <img
+        <img  style="width: 60px;"
           src="{{config.serverNodeLocation}}images/imageForCategory/{{section.imagenMenu}}/{{enviromentVariables.actualPage}}"
           alt="">
         <span [innerHTML]="section.nombre"></span>
@@ -51,7 +51,7 @@
       [ngClass]="{'nav-item active': getSection().idCategoriaPostal === section.idCategoriaPostal}">
       <a class="nav-link" href="index.html" [routerLink]="[enviromentVariables.link.path,section.idCategoriaPostal]"
         (click)='setSection(section)'>
-        <img
+        <img  style="width: 60px;"
           src="{{config.serverNodeLocation}}images/imageForCategory/{{section.imagenMenu}}/{{enviromentVariables.actualPage}}"
           alt="">
         <span [innerHTML]="section.nombre"></span>
@@ -64,7 +64,7 @@
       [ngClass]="{'nav-item active': getSection().idTematica === section.idTematica}">
       <a class="nav-link" href="index.html" [routerLink]="[enviromentVariables.link.path,section.idTematica]"
         (click)='setSection(section)'>
-        <img
+        <img  style="width: 60px;"
           src="{{config.serverNodeLocation}}images/imageForCategory/{{section.imagenMenu}}/{{enviromentVariables.actualPage}}"
           alt="">
         <span [innerHTML]="section.nombre"></span>
