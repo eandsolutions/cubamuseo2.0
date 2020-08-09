@@ -49,11 +49,12 @@
         "Share":"Usted puede compartir esta imagen a traves de sus redes sociales libre de costo"
     },
     "TextComponent":{
-        "Texto":"Desripción",
+        "Texto":"Texto",
         "SuperiorGallery":"Galería de Páginas",
         "InferiorGallery":"Galería de Imágenes"
     },
     "GalleryComponent":{
+        "Title":"Todas las Páginas de la Sección",
         "Emision":"Emisión",
         "Color":"Color",
         "Material":"Material",

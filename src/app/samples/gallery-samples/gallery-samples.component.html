@@ -5,7 +5,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="title  col text-center" >
-                            <a class="text-fiord-blue" style="color: #66bb6a;" [innerHTML]="section.nombre"></a>
+                            <a *ngIf="section.nombre=== 'Todas' " class="text-fiord-blue" style="color: #66bb6a;"> {{'GalleryComponent.Title'|translate}}</a>
+                            <a *ngIf="section.nombre!= 'Todas' " class="text-fiord-blue" style="color: #66bb6a;" [innerHTML]="section.nombre"></a>
                         </h5>
                         <div class="row text-center text-lg-left justify-content-center" style="align-items: baseline;">
                             <div class="col-lg-2 col-md-4 col-6"  *ngFor="let item of gallery">

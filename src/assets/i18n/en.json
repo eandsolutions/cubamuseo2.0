@@ -49,11 +49,12 @@
         "Share":"You can share this image through your social networks free of cost"
     },
     "TextComponent":{
-        "Texto":"Description",
+        "Texto":"Text",
         "SuperiorGallery":"Pages Gallery",
         "InferiorGallery":"Images Gallery"
     },
     "GalleryComponent":{
+        "Title":"All Pages of this Section",
         "Emision":"Emission",
         "Color":"Color",
         "Material":"Material",
