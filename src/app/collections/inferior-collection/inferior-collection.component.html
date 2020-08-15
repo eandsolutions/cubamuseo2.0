@@ -91,14 +91,17 @@
                     <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
                         <i class="material-icons">close</i>
                     </button>
-                    <div class="card" style="max-width: 500px;padding: 20px;" *ngIf="collection.carpeta">
+                    <div class="card" style="max-width: 630px;padding: 20px;" *ngIf="collection.carpeta">
                         <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
                             style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
                             <i class="material-icons"
                                 style="font-size: xx-large; margin-right: auto;">keyboard_arrow_left</i>
                         </a>
-                        <div class="card-header card-header-image">
+                        <div class="card-title" style="font-weight: 800;" [innerHTML]="actualItem.nombre+'. '+ actualItem.titulo">
 
+                        </div>
+                        <div class="card-header card-header-image zoom-exterior">
+                            
                             <div (click)="openModal('custom-modal-zoom')" style="cursor: pointer;text-align: center"
                                 [title]="'Imagen.Zoom'|translate">
                                 <img class="img-fluid img-thumbnail" style="width: auto;"
@@ -195,12 +198,12 @@
             <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-zoom');">
                 <i class="material-icons">close</i>
             </button>
-            <div class="card" style="padding: 40px;" *ngIf="collection.carpeta">
+            <div class="card card-zoom-inferior" style="padding: 60px;" *ngIf="collection.carpeta">
                 <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
                     style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
                     <i class="material-icons" style="font-size: xx-large;margin-right: auto">keyboard_arrow_left</i>
                 </a>
-                <div class="card-header card-header-image" style="margin-top: 0;">
+                <div class="card-header card-header-image zoom-inferior" style="margin-top: 0;">
 
                     <img class="img-fluid img-thumbnail"
                         src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{actualItem.imagen}}/collection/{{getSection()}}"
