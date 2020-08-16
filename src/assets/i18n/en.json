@@ -66,7 +66,9 @@
         "SigloXX":"20th Century",
         "SigloXIX":"19th Century",
         "SeeMore":"See more",
-        "SeeLess":"See less"
+        "SeeLess":"See less",
+        "Siguiente":"Next",
+        "Anterior":"Previous"
     },
     "Imagen":{
         "Zoom":"Zoom"

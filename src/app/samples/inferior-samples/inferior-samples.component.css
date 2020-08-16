@@ -108,3 +108,6 @@
 .card-zoom-inferior {
   max-width: max-content;
 }
+a{
+  text-transform: uppercase;
+}

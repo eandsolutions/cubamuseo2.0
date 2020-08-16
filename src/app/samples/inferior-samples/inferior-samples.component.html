@@ -9,7 +9,7 @@
                     </div>
                     <div class="card-body">
                         <h5 class="title">
-                            <a class="text-fiord-blue" href="#" [innerHTML]="samples.nombre"></a>
+                            <a class="text-fiord-blue" href="#" [innerHTML]="samples.titulo"></a>
                         </h5>
                         <section id="tabs" class="project-tab">
                             <div class="container">
@@ -94,7 +94,7 @@
                     </button>
                     <div class="card" *ngIf="samples.carpeta != ''" style="max-width: 630px; padding: 20px;">
                         <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
-                            style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
+                            style="z-index: 1;  color: rgba(0, 0, 0, 0.733);" [title]="'GalleryComponent.Anterior'|translate">
                             <i class="material-icons"
                                 style="font-size: xx-large; margin-right: auto;">keyboard_arrow_left</i>
                         </a>
@@ -112,7 +112,7 @@
 
                         </div>
                         <a class="carousel-control-next" (click)="next()" role="button"
-                            style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
+                            style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next" [title]="'GalleryComponent.Siguiente'|translate">
                             <i class="material-icons"
                                 style="font-size: xx-large; margin-left: auto;">keyboard_arrow_right</i>
                         </a>
@@ -201,7 +201,7 @@
             </button>
             <div class="card card-zoom-inferior" *ngIf="samples.carpeta != ''" style="width: max-content; padding: 40px;">
                 <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
-                    style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
+                    style="z-index: 1;  color: rgba(0, 0, 0, 0.733);" [title]="'GalleryComponent.Anterior'|translate">
                     <i class="material-icons" style="font-size: xx-large;margin-right: auto;">keyboard_arrow_left</i>
                 </a>
                 <div class="card-header card-header-image zoom-inferior" style="margin-top: 0;">
@@ -212,7 +212,7 @@
 
                 </div>
                 <a class="carousel-control-next" (click)="next()" role="button"
-                    style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
+                    style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next" [title]="'GalleryComponent.Siguiente'|translate">
                     <i class="material-icons" style="font-size: xx-large; margin-left: auto;">keyboard_arrow_right</i>
                 </a>
             </div>
