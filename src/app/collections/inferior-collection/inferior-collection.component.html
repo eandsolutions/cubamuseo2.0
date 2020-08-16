@@ -33,34 +33,36 @@
 
                                                 <p class="card-text d-inline-block mb-3"
                                                     [innerHTML]="collection.descripcion"></p>
-                                                    <div style="display: block; text-align: center;">
-                                                        <div>
-                                                            <label>{{'Derechos.PiePagina'|translate}}</label>
-                                                        </div>
-                                                        <div>
-                                                            <img src="assets/img/Final.png" alt="">
-                                                        </div>
-                                                        
+                                                <div style="display: block; text-align: center;">
+                                                    <div>
+                                                        <label>{{'Derechos.PiePagina'|translate}}</label>
                                                     </div>
+                                                    <div class="pagefirm">
+                                                        <img  src="assets/img/Final.png" alt="">
+                                                    </div>
+
+                                                </div>
                                             </div>
                                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                                 aria-labelledby="nav-profile-tab">
                                                 <div class="container" style="margin-top: 22px;">
-                                                    <div *ngIf="collection.carpeta" class="row text-center text-lg-left justify-content-center"
-                                                    style="align-items: end;">
+                                                    <div *ngIf="collection.carpeta"
+                                                        class="row text-center justify-content-center"
+                                                        style="align-items: end;">
 
-                                                        <div class="col-lg-2 col-md-4 col-6" style="padding: 5px;"
+                                                        <div class=" col-lg-2 col-md-4 col-6" style="padding: 5px;"
                                                             *ngFor="let item of gallery">
-                                                            <a class="d-block mb-4 h-100" style="text-align: center;"
+                                                            <a class=" tooltiptext d-block mb-4 h-100"
+                                                                style="text-align: center;"
                                                                 (click)="openModal('custom-modal-1', item)">
                                                                 <img class="img-fluid img-thumbnail"
                                                                     style=" cursor: pointer; max-height: 80px;"
-                                                                    [title]="item.titulo"
                                                                     src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{item.imagen}}/collection/{{getSection()}}"
                                                                     alt="">
+                                                                <p  [innerHTML]="item.titulo"></p>
                                                             </a>
                                                             <p [innerHTML]="item.nombre"
-                                                            style="font-size: smaller; text-align: center;"></p>
+                                                                style="font-size: smaller; text-align: center;"></p>
                                                         </div>
                                                     </div>
 
@@ -92,16 +94,18 @@
                         <i class="material-icons">close</i>
                     </button>
                     <div class="card" style="max-width: 630px;padding: 20px;" *ngIf="collection.carpeta">
-                        <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev" 
-                            style="z-index: 1;  color: rgba(0, 0, 0, 0.733);" [title]="'GalleryComponent.Anterior'|translate">
+                        <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+                            style="z-index: 1;  color: rgba(0, 0, 0, 0.733);"
+                            [title]="'GalleryComponent.Anterior'|translate">
                             <i class="material-icons"
                                 style="font-size: xx-large; margin-right: auto;">keyboard_arrow_left</i>
                         </a>
-                        <div class="card-title" style="font-weight: 800;" [innerHTML]="actualItem.nombre+'. '+ actualItem.titulo">
+                        <div class="card-title" style="font-weight: 800;"
+                            [innerHTML]="actualItem.nombre+'. '+ actualItem.titulo">
 
                         </div>
                         <div class="card-header card-header-image zoom-exterior">
-                            
+
                             <div (click)="openModal('custom-modal-zoom')" style="cursor: pointer;text-align: center"
                                 [title]="'Imagen.Zoom'|translate">
                                 <img class="img-fluid img-thumbnail" style="width: auto;"
@@ -110,7 +114,8 @@
 
 
                         </div>
-                        <a class="carousel-control-next" (click)="next()" role="button"  [title]="'GalleryComponent.Siguiente'|translate"
+                        <a class="carousel-control-next" (click)="next()" role="button"
+                            [title]="'GalleryComponent.Siguiente'|translate"
                             style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
                             <i class="material-icons"
                                 style="font-size: xx-large; margin-left: auto;">keyboard_arrow_right</i>
@@ -211,7 +216,8 @@
 
                 </div>
                 <a class="carousel-control-next" (click)="next()" role="button"
-                    style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next" [title]="'GalleryComponent.Siguiente'|translate">
+                    style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next"
+                    [title]="'GalleryComponent.Siguiente'|translate">
                     <i class="material-icons" style="font-size: xx-large; margin-left: auto;">keyboard_arrow_right</i>
                 </a>
             </div>

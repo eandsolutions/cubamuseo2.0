@@ -84,3 +84,17 @@ h3{
 a{
   text-transform: uppercase;
 }
+
+.card-body{
+  max-width: 850px;
+}
+
+.card-text{
+  max-width: 100%;
+}
+
+@media(max-width: 480px){
+  .pagefirm img{
+        max-width: 220px ;
+  }
+}

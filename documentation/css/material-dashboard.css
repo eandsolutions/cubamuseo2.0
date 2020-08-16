@@ -3854,6 +3854,7 @@ tbody.collapse.show {
     border-bottom-left-radius: 0.25rem; }
 
 .card-body {
+  
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
@@ -9063,7 +9064,8 @@ button:focus {
     margin-bottom: 3px; }
   .card .card-body {
     padding: 0.9375rem 20px;
-    position: relative; }
+    position: relative;
+    max-width: 835px; }
   .card .card-header {
     z-index: 3 !important; }
     .card .card-header .card-category {
@@ -9112,7 +9114,7 @@ button:focus {
             align-items: center; }
     .card .card-body + .card-footer h6,
     .card .card-footer h6 {
-      width: 100%; }
+      max-width: 100%; }
     .card .card-body + .card-footer .stats,
     .card .card-footer .stats {
       color: #999999;
