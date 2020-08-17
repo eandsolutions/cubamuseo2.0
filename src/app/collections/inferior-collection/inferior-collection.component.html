@@ -38,7 +38,7 @@
                                                         <label>{{'Derechos.PiePagina'|translate}}</label>
                                                     </div>
                                                     <div class="pagefirm">
-                                                        <img  src="assets/img/Final.png" alt="">
+                                                        <img src="assets/img/Final.png" alt="">
                                                     </div>
 
                                                 </div>
@@ -59,7 +59,7 @@
                                                                     style=" cursor: pointer; max-height: 80px;"
                                                                     src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{item.imagen}}/collection/{{getSection()}}"
                                                                     alt="">
-                                                                <p  [innerHTML]="item.titulo"></p>
+                                                                <p [innerHTML]="item.titulo"></p>
                                                             </a>
                                                             <p [innerHTML]="item.nombre"
                                                                 style="font-size: smaller; text-align: center;"></p>
@@ -108,7 +108,7 @@
 
                             <div (click)="openModal('custom-modal-zoom')" style="cursor: pointer;text-align: center"
                                 [title]="'Imagen.Zoom'|translate">
-                                <img class="img-fluid img-thumbnail" style="width: auto;"
+                                <img class="img-fluid img-thumbnail" style=" max-width: 500px; max-height: 500px;"
                                     src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{actualItem.imagen}}/collection/{{getSection()}}">
                             </div>
 
