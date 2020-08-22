@@ -379,12 +379,12 @@ fieldset[disabled] .form-group .form-control{
 .has-success{
   .mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label,
   .mat-form-field-empty.mat-form-field-label{
-    color: #4caf50;
+    color: #7da786;
   }
   &.mat-focused{
     .mat-input-underline{
       .mat-input-ripple{
-        background-color: #4caf50;
+        background-color: #7da786;
       }
     }
   }
@@ -412,13 +412,13 @@ form .ng-valid{
   &.mat-focused .mat-form-field-label,
   .mat-focused .mat-form-field-label,
   .mat-form-field-label{
-    // color: #4caf50;
+    // color: #7da786;
   }
     .mat-input-underline{
-      // background-color: #4caf50;
+      // background-color: #7da786;
       height: 2px;
       .mat-input-ripple{
-        // background-color: #4caf50;
+        // background-color: #7da786;
       }
     }
 
