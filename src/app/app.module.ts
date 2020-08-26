@@ -1,4 +1,4 @@
-//import { Ng7DynamicBreadcrumbModule } from 'ng7-dynamic-breadcrumb';
+
 import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -17,7 +17,7 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
 import { CoreModule } from './core/core.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ModalModule } from './_modal/modal.module';
-// import {BreadcrumbModule} from 'primeng/breadcrumb';
+import { Ng7MatBreadcrumbModule } from 'ng7-mat-breadcrumb';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
@@ -33,10 +33,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    Ng7MatBreadcrumbModule,
     CoreModule,
     ModalModule,
-    //Ng7DynamicBreadcrumbModule,
-    // BreadcrumbModule,
     AgmCoreModule.forRoot({
       apiKey: 'YOUR_GOOGLE_MAPS_API_KEY'
     }),

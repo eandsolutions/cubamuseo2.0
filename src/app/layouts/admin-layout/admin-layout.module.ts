@@ -1,4 +1,3 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -19,6 +18,7 @@ import { PostcardsModule } from 'app/postcards/postcards.module';
 import { StoreModule } from 'app/store/store.module';
 import { SearchModule } from 'app/search/search.module'
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -38,7 +38,7 @@ import { SearchModule } from 'app/search/search.module'
     StoreModule,
     SearchModule,
     MatGridListModule
-  ],
+     ],
   declarations: [
     HomeComponent,
     

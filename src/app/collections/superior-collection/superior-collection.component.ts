@@ -1,3 +1,4 @@
+import { Ng7MatBreadcrumbService } from 'ng7-mat-breadcrumb';
 import { Component, OnInit } from '@angular/core';
 //import { ConfigServiceService } from 'src/app/core/service/config-service.service';
 import { ActivatedRoute } from '@angular/router';
@@ -21,8 +22,9 @@ export class SuperiorCollectionComponent implements OnInit {
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
     public enviromentVariable: EnviromentVariableServiceService,
-    private collectionService: CollectionServiceService
-  ) {
+    private collectionService: CollectionServiceService,
+    private ng7MatBreadcrumbService: Ng7MatBreadcrumbService
+    ) {
     this.collection = {
       descripcion: '',
       titulo: '',
@@ -49,12 +51,28 @@ export class SuperiorCollectionComponent implements OnInit {
               }
 
               this.initGalery()
+              this.updateBreadcrumb();
+              console.log(this.collection.nombre);
             }, err => {
 
             }
           )
       }
     )
+  }
+
+  updateBreadcrumb(): void {
+    const breadcrumbs  =  [
+      {
+        label: 'Inicio',
+        url: '/home'
+      },
+      {
+        label: '{{this.collection.nombre}}',
+        url: ''
+      }
+    ];
+    this.ng7MatBreadcrumbService.updateBreadcrumb(breadcrumbs);
   }
 
   initSections() {

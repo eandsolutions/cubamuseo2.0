@@ -47,8 +47,6 @@
                 <div class="card-body">
                     <section class="mb-4">
                         <!--Section description-->
-                        <p class="text-center w-responsive mx-auto mb-5">{{'Contact.Questions'|translate}}</p>
-
                         <div class="row">
 
                             <!--Grid column-->
@@ -147,12 +145,12 @@
             <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-related-sites');">
                 <i class="material-icons">close</i>
             </button>
-            <div class="card" style="width: max-content;">
+            <div class="card" >
                 <div class="card-header card-header-info">
                     {{'RelatedSites.TITLE'|translate}}
                 </div>
                 <div class="card-body">
-                    <p [innerHTML]= "'RelatedSites.TEXT'|translate">
+                    <p [innerHTML]="'RelatedSites.TEXT'|translate">
                       
                     </p>
                 </div>
@@ -167,13 +165,12 @@
             <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-news');">
                 <i class="material-icons">close</i>
             </button>
-            <div class="card" style="width: max-content;">
+            <div class="card" >
                 <div class="card-header card-header-info">
                     {{'News.TITLE'|translate}}
                 </div>
                 <div class="card-body">
-                    <p [innerHTML]="'News.TEXT'|translate">
-                        
+                    <p [innerHTML]="'News.TEXT'|translate">  
                     </p>
                 </div>
             </div>
@@ -188,7 +185,7 @@
                 (click)="closeModal('custom-modal-company-description');">
                 <i class="material-icons">close</i>
             </button>
-            <div class="card" style="width: max-content;">
+            <div class="card" >
                 <div class="card-header card-header-info">
                     {{'About.TITLE'|translate}}
                 </div>

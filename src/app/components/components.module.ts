@@ -17,7 +17,7 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     RouterModule,
     ModalModule,
     FormsModule,
-    TranslateModule,
+    TranslateModule
     //BreadcrumbModule
   ],
   declarations: [

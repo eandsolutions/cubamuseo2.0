@@ -24,5 +24,14 @@
 @media(max-width: 768px){
 .card {
     width:150%;
+
 }
+.card-body {
+    width:100%;
+    
+}
+.card-body p {
+ width: 100%;
+}
+
 }
