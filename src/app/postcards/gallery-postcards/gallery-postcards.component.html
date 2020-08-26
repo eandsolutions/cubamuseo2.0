@@ -38,14 +38,14 @@
 
                 <div class="card-header card-header-image zoom-exterior">
                     <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
-                        style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
+                        style="left: -12%; z-index: 1;  color: rgba(0, 0, 0, 0.733); cursor: pointer;">
                         <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
                     </a>
                     <img class="img-fluid img-thumbnail"
                         src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{actualItem.imagen}}/postcards/none"
                         alt="">
                     <a class="carousel-control-next" (click)="next()" role="button"
-                        style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
+                        style="right: -12%; z-index: 1; color: rgba(0, 0, 0, 0.733);cursor: pointer;" data-slide="next">
                         <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
                     </a>
 
