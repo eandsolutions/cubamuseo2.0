@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
+<nav (window:resize)="resize()" class="navbar navbar-expand-lg navbar-transparent  navbar-absolute fixed-top">
     <div class="container-fluid" [ngStyle]="{'width': width > 990 ? width-260+'px':width+'px'}">
         <ul class="navbar-nav mr-auto hidden-md">
             <li class="nav-item" >

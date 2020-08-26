@@ -17,23 +17,27 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     toogleButton: boolean;
-    query:string;
-    width: number = window.screen.width
+    query: string;
+    width: number;
     constructor(
-        location: Location, 
-        private element: ElementRef, 
+        location: Location,
+        private element: ElementRef,
         private router: Router,
         public enviromentVariable: EnviromentVariableServiceService,
         public translate: TranslateService
-        ) {
+    ) {
         this.location = location;
         this.toggleButton = false;
         this.sidebarVisible = false;
     }
 
+    resize(){
+        this.width = window.screen.width
+    }
+
     change(language) {
         this.translate.use(language);
-      }
+    }
     ngOnInit() {
         //this.listTitles = ROUTES.filter(listTitle => listTitle);
         const navbar: HTMLElement = this.element.nativeElement;
@@ -123,8 +127,8 @@ export class NavbarComponent implements OnInit {
         }
     };
 
-    search(){
-        this.router.navigate(['search',this.query])
+    search() {
+        this.router.navigate(['search', this.query])
     }
 
     // getTitle(){
