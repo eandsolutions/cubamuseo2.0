@@ -102,6 +102,7 @@
     height: 500px;
     display: flex;
     justify-content: center;
+    align-self: center;
   }
   @media (max-width: 480px) and (min-width: 322px){
     .zoom-exterior{
