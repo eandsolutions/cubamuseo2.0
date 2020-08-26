@@ -17,24 +17,6 @@
 }
 
 
-@media(max-width: 768px) {
-    .container-fluid {
-        width: 100%;
-    }
-    .language {
-      position: absolute;
-      margin-left: 90px;
-    }
-
-    .hidden-md {
-        display: none;
-    }
-
-    .show-md {
-        display: block !important;
-    }
-}
-
 .show-md {
     display: none;
 }
@@ -79,12 +61,32 @@
     z-index: 9;
 }
 
-@media(max-width: 768px) {
+@media(max-width: 990px) {
     .shopping-cart {
         display: block;
         position: absolute;
         right: 60px;
     }
+
+    .container-fluid {
+        width: 100%;
+    }
+    .language {
+      position: absolute;
+      margin-left: 90px;
+    }
+
+    .hidden-md {
+        display: none;
+    }
+
+    .show-md {
+        display: block !important;
+    }
+}
+
+@media(max-width: 1300px){
+
 }
 
 .active{

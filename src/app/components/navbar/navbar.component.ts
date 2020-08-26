@@ -18,6 +18,7 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     toogleButton: boolean;
     query:string;
+    width: number = window.screen.width
     constructor(
         location: Location, 
         private element: ElementRef, 
