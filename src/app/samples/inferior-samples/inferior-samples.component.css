@@ -98,11 +98,24 @@
 
 .zoom-exterior{
   margin-top: 0 !important;
+  width: 500px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+@media (max-width: 480px) and (min-width: 322px){
+  .zoom-exterior{
+    margin-top: 0 !important;
+    width: 250px;
+    height: 250px;
+  }
 }
 
-.zoom-inferior{
+.card-zoom-inferior{
   width: max-content;
-  margin-top: 0;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .card-zoom-inferior {

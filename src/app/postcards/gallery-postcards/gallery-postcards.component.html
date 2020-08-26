@@ -6,13 +6,14 @@
                  -->
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="title  col text-center" >
+                        <h5 class="title  col text-center">
                             <a class="text-fiord-blue" style="color: #66bb6a;" [innerHTML]="section.nombre"></a>
                         </h5>
-                        <div class="row text-center justify-content-center" style="align-items: center;">
+                        <div class="row text-center justify-content-center" style="align-items: flex-end;">
                             <div class="col-lg-2 col-md-4 col-6" *ngFor="let item of gallery">
                                 <a class="d-block mb-4 h-100" (click)="openModal('custom-modal-1', item)">
-                                    <img class="img-fluid img-thumbnail" style =" cursor: pointer; max-height: 80px;" [title]="item.nombre"
+                                    <img class="img-fluid img-thumbnail" style=" cursor: pointer; max-height: 80px;"
+                                        [title]="item.nombre"
                                         src="{{config.serverNodeLocation}}images/2/{{getSection()}}/{{item.imagen}}/postcards/none"
                                         alt="">
                                 </a>
@@ -28,11 +29,14 @@
 <jw-modal id="custom-modal-1">
     <div class="container-fluid center ">
         <div class="row justify-content-center">
-            <button class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
-                <i class="material-icons">close</i>
-            </button>
-            <div class="card" style="width: auto;">
-                <div class="card-header card-header-image">
+
+            <div class="card" style="max-width: 630px;padding: 30px; margin-top: 0;">
+                <button style="position: absolute; right: 3px; top: 0;z-index: 4;"
+                    class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
+                    <i class="material-icons">close</i>
+                </button>
+
+                <div class="card-header card-header-image zoom-exterior">
                     <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
                         style="z-index: 1;  color: rgba(0, 0, 0, 0.733);">
                         <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_left</i>
@@ -44,23 +48,34 @@
                         style="z-index: 1; color: rgba(0, 0, 0, 0.733);" data-slide="next">
                         <i class="material-icons" style="font-size: xx-large;">keyboard_arrow_right</i>
                     </a>
-                   
+
                 </div>
+
                 <div class="card-body" style="width: 100%;">
                     <div class="social-btns">
-                        <a class="btn facebook" [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')" target="_blank" >
+                        <a class="btn facebook"
+                            [href]="enviromentVariable.getFacebook(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
+                            target="_blank">
                             <i class="fa fa-facebook"></i>
                         </a>
-                        <a class="btn twitter" [href]="enviromentVariable.getTwitter('',config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')" target="_blank">
+                        <a class="btn twitter"
+                            [href]="enviromentVariable.getTwitter('',config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
+                            target="_blank">
                             <i class="fa fa-twitter"></i>
                         </a>
-                        <a class="btn google" [href]="enviromentVariable.getGooglePlus(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')" target="_blank">
+                        <a class="btn google"
+                            [href]="enviromentVariable.getGooglePlus(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
+                            target="_blank">
                             <i class="fa fa-google"></i>
                         </a>
-                        <a class="btn linkedin" [href]="enviromentVariable.getLinkedIn(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')" target="_blank">
+                        <a class="btn linkedin"
+                            [href]="enviromentVariable.getLinkedIn(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none')"
+                            target="_blank">
                             <i class="fa fa-linkedin"></i>
                         </a>
-                        <a class="btn pinteres" [href]="enviromentVariable.getPinterest(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none', '')" target="_blank">
+                        <a class="btn pinteres"
+                            [href]="enviromentVariable.getPinterest(config.serverNodeLocation+'images/2/'+getSection()+'/'+actualItem.imagen+'/postcards/none', '')"
+                            target="_blank">
                             <i class="fa fa-pinterest"></i>
                         </a>
 
