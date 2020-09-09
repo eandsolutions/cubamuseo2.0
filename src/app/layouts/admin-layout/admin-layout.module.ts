@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -40,7 +41,7 @@ import { SearchModule } from 'app/search/search.module'
     MatGridListModule
      ],
   declarations: [
-    HomeComponent,
+    HomeComponent
     
   ],
  

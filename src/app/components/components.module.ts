@@ -10,6 +10,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { ModalModule } from 'app/_modal';
 import { FormsModule } from '@angular/forms';
 import { ScrollTopComponent } from './scroll-top/scroll-top.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
   imports: [
@@ -24,13 +25,15 @@ import { ScrollTopComponent } from './scroll-top/scroll-top.component';
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    ScrollTopComponent
+    ScrollTopComponent,
+    BreadcrumbComponent
   ],
   exports: [
     FooterComponent,
     NavbarComponent,
     SidebarComponent,
-    ScrollTopComponent
+    ScrollTopComponent,
+    BreadcrumbComponent
   ]
 })
 export class ComponentsModule { }

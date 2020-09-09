@@ -21,7 +21,7 @@
     </form>
   </div>
   <ul class="nav" *ngIf="enviromentVariables.actualPage == 'collection'">
-    <li class="nav-item" *ngFor="let section of enviromentVariables.sections"
+    <li (click)='setBreadcrumb(section)' class="nav-item" *ngFor="let section of enviromentVariables.sections"
       [ngClass]="{'nav-item active': getSection().idSeccion === section.idSeccion}">
       <a class="nav-link" href="index.html" [routerLink]="[enviromentVariables.link.path,section.idSeccion]"
         (click)='setSection(section)'>
@@ -34,11 +34,11 @@
   </ul>
 
   <ul class="nav" *ngIf="enviromentVariables.actualPage == 'samples' || enviromentVariables.actualPage == 'stamps'">
-    <li class="nav-item" *ngFor="let section of enviromentVariables.sections"
+    <li  class="nav-item" *ngFor="let section of enviromentVariables.sections"
       [ngClass]="{'nav-item active': getSection().idCategoriaEstampa === section.idCategoriaEstampa}">
       <a class="nav-link" href="index.html" [routerLink]="[enviromentVariables.link.path,section.idCategoriaEstampa]"
         (click)='setSection(section)'>
-        <img  
+        <img   (click)='setBreadcrumb(section)'
           src="{{config.serverNodeLocation}}images/imageForCategory/{{section.imagenMenu}}/{{enviromentVariables.actualPage}}"
           alt="">
         <span [innerHTML]="section.nombre"></span>
@@ -47,7 +47,7 @@
   </ul>
 
   <ul class="nav" *ngIf="enviromentVariables.actualPage == 'postcards'">
-    <li class="nav-item" *ngFor="let section of enviromentVariables.sections"
+    <li (click)='setBreadcrumb(section)' class="nav-item" *ngFor="let section of enviromentVariables.sections"
       [ngClass]="{'nav-item active': getSection().idCategoriaPostal === section.idCategoriaPostal}">
       <a class="nav-link" href="index.html" [routerLink]="[enviromentVariables.link.path,section.idCategoriaPostal]"
         (click)='setSection(section)'>
@@ -60,7 +60,7 @@
   </ul>
 
   <ul class="nav" *ngIf="enviromentVariables.actualPage == 'store'">
-    <li class="nav-item" *ngFor="let section of enviromentVariables.sections"
+    <li (click)='setBreadcrumb(section)'class="nav-item" *ngFor="let section of enviromentVariables.sections"
       [ngClass]="{'nav-item active': getSection().idTematica === section.idTematica}">
       <a class="nav-link" href="index.html" [routerLink]="[enviromentVariables.link.path,section.idTematica]"
         (click)='setSection(section)'>

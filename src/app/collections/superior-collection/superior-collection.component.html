@@ -53,7 +53,7 @@
                                                                 {{'GalleryComponent.SigloXIX'|translate}}</h3>
                                                             <div class="col-lg-3 col-md-4 col-6"
                                                                 *ngFor="let item of gallery">
-                                                                <a class="d-block mb-4 h-100"
+                                                                <a (click)='setBreadcrumb(item)' class="d-block mb-4 h-100"
                                                                     [routerLink]="['/inferior-collection',item.idCategoria]"
                                                                     style="margin-bottom: 2px !important;">
                                                                     <img class="img-fluid img-thumbnail"
@@ -69,7 +69,7 @@
                                                                 {{'GalleryComponent.SigloXX'|translate}}</h3>
                                                             <div class="col-lg-3 col-md-4 col-6"
                                                                 *ngFor="let item of galleryXX">
-                                                                <a class="d-block mb-4 h-100"
+                                                                <a (click)='setBreadcrumb(item)' class="d-block mb-4 h-100"
                                                                     [routerLink]="['/inferior-collection',item.idCategoria]"
                                                                     style="margin-bottom: 2px !important;">
                                                                     <img class="img-fluid img-thumbnail"

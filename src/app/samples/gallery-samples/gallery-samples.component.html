@@ -14,7 +14,7 @@
                     <div class="card-body">
                         <div class="row text-center justify-content-center" style="align-items: baseline;">
                             <div class="col-lg-3 col-md-4 col-6"  *ngFor="let item of gallery">
-                                <a class="d-block mb-2" [routerLink]="['/inferior-samples',item.idMuestra]">
+                                <a (click)='setBreadcrumb(item)' class="d-block mb-2" [routerLink]="['/inferior-samples',item.idMuestra]">
                                     <img class="img-fluid img-thumbnail"
                                         src="{{config.serverNodeLocation}}images/2/{{item.carpeta}}/{{item.imagenGaleria}}/samples/none"
                                         alt="">

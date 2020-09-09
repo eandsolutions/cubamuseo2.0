@@ -69,9 +69,19 @@ export class SamplesComponent implements OnInit {
       }
     )
   }
+  initBreadcrumb(){
+    let data:any = this.enviromentVariable.getSection();
+    this.enviromentVariable.breadcrumbList[1]={
+      name:'Muestras',
+      path:'/samples'
+    };
+    this.enviromentVariable.breadcrumbList.splice(2,2);
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'samples'
+    this.initBreadcrumb();
     this.enviromentVariable.sections=[];
     this.enviromentVariable.sections.push({
       idCategoriaEstampa:0,

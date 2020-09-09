@@ -59,6 +59,20 @@ export class GallerySamplesComponent implements OnInit {
     
   }
 
+  initBreadcrumb(){
+    let data:any = this.enviromentVariable.getSection();
+    this.enviromentVariable.breadcrumbList[1]={
+      name:'Muestras',
+      path:'/samples'
+    };
+    
+    this.enviromentVariable.breadcrumbList[2]={
+      name: JSON.parse(data).nombre,
+      path:'/gallery-samples/'+  JSON.parse(data).idCategoriaEstampa
+    };
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
+
   initSections() {
     this.samplesService.getSamplesCategories().subscribe(
       (data: any[]) => {
@@ -73,8 +87,19 @@ export class GallerySamplesComponent implements OnInit {
     )
   }
 
+  setBreadcrumb(item){
+    this.enviromentVariable.breadcrumbList[3]={
+      name:item.nombre,
+      path:'/inferior-samples/'+ item.idMuestra
+    };
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
+  
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'samples';
+    this.initBreadcrumb();
+    this.enviromentVariable.breadcrumbList.splice(3,1);
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
     this.enviromentVariable.sections=[];
     this.enviromentVariable.sections.push({
       idCategoriaEstampa:0,

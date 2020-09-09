@@ -1,4 +1,3 @@
-
 import { TranslateLoader } from '@ngx-translate/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -7,17 +6,14 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
 import { AppRoutingModule } from './app.routing';
 import { ComponentsModule } from './components/components.module';
-
 import { AppComponent } from './app.component';
 import { AgmCoreModule } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { ModalModule } from './_modal/modal.module';
-import { Ng7MatBreadcrumbModule } from 'ng7-mat-breadcrumb';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './../assets/i18n/', '.json');
@@ -33,7 +29,6 @@ export function HttpLoaderFactory(http: HttpClient) {
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
-    Ng7MatBreadcrumbModule,
     CoreModule,
     ModalModule,
     AgmCoreModule.forRoot({
@@ -52,7 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
+    AdminLayoutComponent
   ],
   exports: [
     TranslateModule

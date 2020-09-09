@@ -50,8 +50,19 @@ export class PostcardsComponent implements OnInit {
       }
     )
   }
+  initBreadcrumb(){
+    let data:any = this.enviromentVariable.getSection();
+    this.enviromentVariable.breadcrumbList[1]={
+      name:'Postales',
+      path:'/postcards'
+    };
+    this.enviromentVariable.breadcrumbList.splice(2,2);
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
+
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'postcards'
+    this.initBreadcrumb();
     this.initSections();
     this.initComponent();
   }

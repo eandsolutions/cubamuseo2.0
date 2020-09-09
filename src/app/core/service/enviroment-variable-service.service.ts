@@ -8,6 +8,7 @@ import { ConfigServiceService } from './config-service.service';
 export class EnviromentVariableServiceService {
 
   sections: any[];
+  breadcrumbList:any[];
   link: any;
   actualPage: string;
   googlePlus: string = '';
@@ -17,6 +18,11 @@ export class EnviromentVariableServiceService {
     this.sections = [];
     this.link = { path: '' };
     this.actualPage = 'collection';
+    this.breadcrumbList =[];
+    this.breadcrumbList[0]={
+        name:'Inicio',
+        path:'/home'
+    };
   }
 
   
@@ -51,6 +57,21 @@ export class EnviromentVariableServiceService {
 
   getMail(subject, body) {
     return 'mailto:?subject=' + subject + '&body=' + body
+  }
+
+  setBreadcrumb(breadcrumb: any[]) {
+    window.localStorage.setItem('breadcrumb', JSON.stringify(breadcrumb));
+  }
+
+
+  getBreadcrumb() {
+    if (window.localStorage.getItem('breadcrumb'))
+      return window.localStorage.getItem('breadcrumb') ;
+    return 0
+  }
+
+  deleteBreadcrumb() {
+    window.localStorage.removeItem('breadcrumb');
   }
 
   setSection(section: any) {

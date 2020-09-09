@@ -72,9 +72,33 @@ export class GalleryStampComponent implements OnInit {
       }
     )
   }
+  initBreadcrumb(){
+    let data:any = this.enviromentVariable.getSection();
+    this.enviromentVariable.breadcrumbList[1]={
+      name:'Muestras',
+      path:'/samples'
+    };
+    
+    this.enviromentVariable.breadcrumbList[2]={
+      name: JSON.parse(data).nombre,
+      path:'/gallery-stamp/'+  JSON.parse(data).idCategoriaEstampa
+    };
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
+
+  setBreadcrumb(item){
+    this.enviromentVariable.breadcrumbList[3]={
+      name:item.nombre,
+      path:'/inferior-stamp/'+ item.idEstampa
+    };
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'stamps';
+    this.initBreadcrumb();
+    this.enviromentVariable.breadcrumbList.splice(3,1);
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
     this.enviromentVariable.sections=[];
     this.enviromentVariable.sections.push({
       idCategoriaEstampa:0,

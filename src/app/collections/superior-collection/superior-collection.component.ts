@@ -1,7 +1,6 @@
-import { Ng7MatBreadcrumbService } from 'ng7-mat-breadcrumb';
 import { Component, OnInit } from '@angular/core';
 //import { ConfigServiceService } from 'src/app/core/service/config-service.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 //import { EnviromentVariableServiceService } from 'src/app/core/service/enviroment-variable-service.service';
 import { ConfigServiceService } from 'app/core/service/config-service.service';
 import { CollectionServiceService } from 'app/core/service/collection-service.service';
@@ -23,7 +22,7 @@ export class SuperiorCollectionComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     public enviromentVariable: EnviromentVariableServiceService,
     private collectionService: CollectionServiceService,
-    private ng7MatBreadcrumbService: Ng7MatBreadcrumbService
+    private router:Router
     ) {
     this.collection = {
       descripcion: '',
@@ -51,7 +50,6 @@ export class SuperiorCollectionComponent implements OnInit {
               }
 
               this.initGalery()
-              this.updateBreadcrumb();
               console.log(this.collection.nombre);
             }, err => {
 
@@ -61,22 +59,8 @@ export class SuperiorCollectionComponent implements OnInit {
     )
   }
 
-  updateBreadcrumb(): void {
-    const breadcrumbs  =  [
-      {
-        label: 'Inicio',
-        url: '/home'
-      },
-      {
-        label: '{{this.collection.nombre}}',
-        url: ''
-      }
-    ];
-    this.ng7MatBreadcrumbService.updateBreadcrumb(breadcrumbs);
-  }
 
   initSections() {
-
     this.collectionService.getCollectionsSections().subscribe(
       (data: any[]) => {
         this.enviromentVariable.sections = [];
@@ -99,10 +83,8 @@ export class SuperiorCollectionComponent implements OnInit {
           }else{
             this.galleryXX.push(element)
           }
-        });
-        
+        });     
       }, err => {
-
       }
     )
   }
@@ -117,8 +99,28 @@ export class SuperiorCollectionComponent implements OnInit {
     
   }
 
-  ngOnInit(): void {
-    this.enviromentVariable.actualPage = 'collection'
+  setBreadcrumb(item){
+    this.enviromentVariable.breadcrumbList[2]={
+      name:item.nombre,
+      path:'/inferior-collection/'+ item.idCategoria
+    };
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
   }
 
+  initBreadcrumb(){
+    let data:any = this.enviromentVariable.getSection();
+    this.enviromentVariable.breadcrumbList[1]={
+      name: JSON.parse(data).nombre,
+      path:'/superior-collection/'+  JSON.parse(data).idSeccion
+    };
+    this.enviromentVariable.breadcrumbList.splice(2,1);
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
+
+  ngOnInit(): void {
+    this.enviromentVariable.actualPage = 'collection';
+    this.initBreadcrumb();
+   
+  }
+  
 }

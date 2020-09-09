@@ -24,18 +24,13 @@ export class HomeComponent implements OnInit {
       descripcion: '',
       imagen: ''
     }
-
     this.enviromentVariable.deleteSection();
-
   }
 
   initSections() {
     this.collectionService.getCollectionsSections().subscribe(
       (data: any[]) => {
-
         this.enviromentVariable.sections = data;
-
-        console.log(this.enviromentVariable.sections)
         this.enviromentVariable.link = { path: '/superior-collection' }
       }, err => {
         console.log(err)
@@ -52,15 +47,19 @@ export class HomeComponent implements OnInit {
           imagen: data.imagen
         }
       }, err => {
-
       }
     )
   }
 
+  initBreadcrumb(){
+    this.enviromentVariable.breadcrumbList.splice(1,3);
+    this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
+  }
   
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'collection'
+    this.initBreadcrumb();
     this.initSections();
     this.initComponent();
   }

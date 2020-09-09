@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { EnviromentVariableServiceService } from 'app/core/service/enviroment-variable-service.service';
 import { ConfigServiceService } from 'app/core/service/config-service.service';
@@ -31,16 +32,50 @@ export class SidebarComponent implements OnInit {
 
   constructor(
     public enviromentVariables: EnviromentVariableServiceService,
-    public config: ConfigServiceService
+    public config: ConfigServiceService,
+    private router:Router
   ) { 
     console.log(enviromentVariables.sections)
   }
 
   ngOnInit(): void {
+
   }
 
   setSection(section:any) {
     this.enviromentVariables.setSection(section);
+  }
+
+  setBreadcrumb(section){
+    let data:any = this.enviromentVariables.getSection();
+
+    if(this.enviromentVariables.actualPage == 'collection'){
+      this.enviromentVariables.breadcrumbList[1]={
+        name: JSON.parse(data).nombre,
+        path: '/superior-collection/' + JSON.parse(data).idSeccion
+      };  
+    }
+    else if(this.enviromentVariables.actualPage == 'samples'){
+      this.enviromentVariables.breadcrumbList[2]={
+        name: JSON.parse(data).nombre,
+        path: '/gallery-samples/' + JSON.parse(data).idCategoriaEstampa
+      };  
+    }
+    else if(this.enviromentVariables.actualPage == 'stamps'){
+      this.enviromentVariables.breadcrumbList[2]={
+        name:JSON.parse(data).nombre,
+        path: '/gallery-stamp/' + JSON.parse(data).idCategoriaEstampa
+      };  
+    }
+    else{
+      this.enviromentVariables.breadcrumbList[2]={
+        name: JSON.parse(data).nombre,
+        path: '/gallery-postcards/' + JSON.parse(data).idCategoriaPostal
+      };  
+    }
+
+   
+    this.enviromentVariables.setBreadcrumb(this.enviromentVariables.breadcrumbList)
   }
 
   getSection(){
