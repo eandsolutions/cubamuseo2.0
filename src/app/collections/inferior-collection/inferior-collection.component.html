@@ -18,11 +18,13 @@
                                         <nav>
                                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"
                                                 style="max-width: 350px;width: max-content;padding: 0;">
-                                                <a style="font-size: 15px;" class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
-                                                    href="#nav-home" role="tab" aria-controls="nav-home"
+                                                <a style="font-size: 15px;" class="nav-item nav-link active"
+                                                    id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                                                    aria-controls="nav-home"
                                                     aria-selected="true">{{'TextComponent.Texto'|translate}}</a>
-                                                <a style="font-size: 15px;" class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
-                                                    href="#nav-profile" role="tab" aria-controls="nav-profile"
+                                                <a style="font-size: 15px;" class="nav-item nav-link"
+                                                    id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                                                    role="tab" aria-controls="nav-profile"
                                                     aria-selected="false">{{'TextComponent.InferiorGallery'|translate}}</a>
                                             </div>
                                         </nav>
@@ -90,37 +92,40 @@
             <div class="row">
 
                 <div class="col-md-12">
-                    
+
                     <div class="card" style="max-width: 630px;padding: 50px; margin-top: 0;" *ngIf="collection.carpeta">
-                        <button style="position: absolute; right: 3px; top: 0;z-index: 5;" class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
+                        <button style="position: absolute; right: 3px; top: 0;z-index: 5;"
+                            class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-1');">
                             <i class="material-icons">close</i>
                         </button>
-                        <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
-                            style="z-index: 4;  color: rgba(0, 0, 0, 0.733);"
-                            [title]="'GalleryComponent.Anterior'|translate">
-                            <i class="material-icons"
-                                style="font-size: 50px; margin-right: auto;">keyboard_arrow_left</i>
-                        </a>
+
                         <div class="card-title" style="font-weight: 800;"
                             [innerHTML]="actualItem.nombre+' | '+ actualItem.titulo">
-
+                            
                         </div>
                         <div class="card-header card-header-image zoom-exterior">
-
-                            <div (click)="openModal('custom-modal-zoom')" style="cursor: pointer;text-align: center; display: flex;justify-content: center;"
+                            <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
+                                style="left: -12%; z-index: 4;  color: rgba(0, 0, 0, 0.733);"
+                                [title]="'GalleryComponent.Anterior'|translate">
+                                <i class="material-icons"
+                                    style="font-size: 50px; margin-right: auto;">keyboard_arrow_left</i>
+                            </a>
+                            <div (click)="openModal('custom-modal-zoom')"
+                                style="cursor: pointer;text-align: center; display: flex;justify-content: center;"
                                 [title]="'Imagen.Zoom'|translate">
-                                <img class="img-fluid img-thumbnail" style="align-self: center; max-height: 100%; width: auto;"
+                                <img class="img-fluid img-thumbnail"
+                                    style="align-self: center; max-height: 100%; width: auto;"
                                     src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{actualItem.imagen}}/collection/{{getSection()}}">
                             </div>
 
-
+                            <a class="carousel-control-next" (click)="next()" role="button"
+                                [title]="'GalleryComponent.Siguiente'|translate"
+                                style="right: -12%;z-index: 4; color: rgba(0, 0, 0, 0.733);" data-slide="next">
+                                <i class="material-icons"
+                                    style="font-size: 50px; margin-left: auto;">keyboard_arrow_right</i>
+                            </a>
                         </div>
-                        <a class="carousel-control-next" (click)="next()" role="button"
-                            [title]="'GalleryComponent.Siguiente'|translate"
-                            style="z-index: 4; color: rgba(0, 0, 0, 0.733);" data-slide="next">
-                            <i class="material-icons"
-                                style="font-size: 50px; margin-left: auto;">keyboard_arrow_right</i>
-                        </a>
+
                         <div class="card-body">
                             <div class="cui_descr_nav" *ngIf="!checkLenght(actualItem.descripcion)">
                                 <p style="text-align:left; line-height:1.6em; color: black; "
@@ -201,9 +206,10 @@
 <jw-modal id="custom-modal-zoom">
     <div class="container-fluid center" style="width: max-content;">
         <div class="row" style="justify-content: center; display: block;">
-            
+
             <div class="card card-zoom-inferior" style="padding: 60px; margin-top: 0" *ngIf="collection.carpeta">
-                <button style="position: absolute; right: 3px; top: 0; z-index: 2;" class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-zoom');">
+                <button style="position: absolute; right: 3px; top: 0; z-index: 2;"
+                    class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-zoom');">
                     <i class="material-icons">close</i>
                 </button>
                 <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"

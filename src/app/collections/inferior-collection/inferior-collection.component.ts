@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EnviromentVariableServiceService } from 'app/core/service/enviroment-variable-service.service';
 import { CollectionServiceService } from 'app/core/service/collection-service.service';
 import { ModalService } from 'app/_modal/modal.service';
+import { decode } from 'punycode';
 
 @Component({
   selector: 'app-inferior-collection',
@@ -17,6 +18,7 @@ export class InferiorCollectionComponent implements OnInit {
   actualItem: any;
   isHide: boolean;
   widht: string = '900px'
+  
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
@@ -24,6 +26,7 @@ export class InferiorCollectionComponent implements OnInit {
     private collectionService: CollectionServiceService,
     private modalService: ModalService
   ) {
+    console.log(decodeURIComponent(encodeURIComponent('AquÃ­')))
     this.isHide = false;
     this.gallery = [];
     this.actualItem = {
