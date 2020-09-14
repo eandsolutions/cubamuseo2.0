@@ -101,7 +101,7 @@
                             <i class="material-icons">close</i>
                         </button>
 
-                        <div class="card-title" style="font-weight: 800;"
+                        <div class="card-title" style="font-weight: 800; height: 80px;"
                             [innerHTML]="actualItem.nombre+' | '+ actualItem.titulo">
 
                         </div>
@@ -215,6 +215,10 @@
                     class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-zoom');">
                     <i class="material-icons">close</i>
                 </button>
+                <div class="card-title" style="font-weight: 800; height: 80px;"
+                    [innerHTML]="actualItem.nombre+' | '+ actualItem.titulo">
+
+                </div>
                 <a class="carousel-control-prev" (click)="prev()" role="button" data-slide="prev"
                     style="z-index: 1;  color: rgba(0, 0, 0, 0.733);" [title]="'GalleryComponent.Anterior'|translate">
                     <i class="material-icons" style="font-size: xx-large;margin-right: auto;">keyboard_arrow_left</i>
