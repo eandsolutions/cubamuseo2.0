@@ -43,7 +43,8 @@ export class InferiorSamplesComponent implements OnInit {
       imagen: '',
       nombre: '',
       carpeta: '',
-      id: ''
+      id: '',
+      cantImges:0
     }
     activateRoute.params.subscribe(
       data => {
@@ -56,7 +57,8 @@ export class InferiorSamplesComponent implements OnInit {
                 imagen: data.imagen,
                 nombre: data.nombre,
                 carpeta: data.carpeta,
-                id: data.idMuestra
+                id: data.idMuestra,
+                cantImages:data.cantImagenes
               }
 
               this.initGalery();
@@ -180,6 +182,11 @@ export class InferiorSamplesComponent implements OnInit {
   see_more() {
     this.isHide = !this.isHide;
     return this.isHide;
+  }
+
+  getHeigth(){
+    let value = document.getElementById('item').offsetWidth;
+    return value-10;
   }
 
 }

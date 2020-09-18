@@ -18,7 +18,9 @@ export class InferiorCollectionComponent implements OnInit {
   actualItem: any;
   isHide: boolean;
   widht: string = '900px'
-  
+  maxheigth: number;
+  id:number;
+
   constructor(
     public config: ConfigServiceService,
     private activateRoute: ActivatedRoute,
@@ -26,9 +28,9 @@ export class InferiorCollectionComponent implements OnInit {
     private collectionService: CollectionServiceService,
     private modalService: ModalService
   ) {
-    console.log(decodeURIComponent(encodeURIComponent('AquÃ­')))
-    this.isHide = false;
+        this.isHide = false;
     this.gallery = [];
+    this.maxheigth = 0;
     this.actualItem = {
       imagen: '',
       descripcion: '',
@@ -47,28 +49,34 @@ export class InferiorCollectionComponent implements OnInit {
       imagen: '',
       nombre: '',
       carpeta: null,
-      id: ''
+      id: '',
+      cantImages: 0
     }
 
     activateRoute.params.subscribe(
       data => {
         if (data.id)
-          this.collectionService.getCategoryById(data.id).subscribe(
-            (data: any) => {
-              this.collection = {
-                descripcion: data.descripcion,
-                titulo: data.titulo,
-                imagen: data.imagen,
-                nombre: data.nombre,
-                carpeta: data.carpeta,
-                id: data.idCategoria
-              }
+          this.id = data.id;
+      }
+    )
+  }
 
-              this.initGalery()
-            }, err => {
+  initCollection(id:number){
+    this.collectionService.getCategoryById(id).subscribe(
+      (data: any) => {
+        this.collection = {
+          descripcion: data.descripcion,
+          titulo: data.titulo,
+          imagen: data.imagen,
+          nombre: data.nombre,
+          carpeta: data.carpeta,
+          id: data.idCategoria,
+          cantImages: data.cantImagenes
+        }
+    
+        this.initGalery()
+      }, err => {
 
-            }
-          )
       }
     )
   }
@@ -91,24 +99,26 @@ export class InferiorCollectionComponent implements OnInit {
         this.enviromentVariable.sections = data;
         this.enviromentVariable.link = { path: '/superior-collection' }
       }, err => {
-        console.log(err)
+        
       }
     )
   }
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'collection'
+    this.initCollection(this.id)
     this.initSections()
+    
   }
 
   getSection() {
-    let data:any = this.enviromentVariable.getSection()
-    if(data == 0){
+    let data: any = this.enviromentVariable.getSection()
+    if (data == 0) {
       return 0
-    }else{
+    } else {
       return JSON.parse(data).nombre
     }
-    
+
   }
 
   openModal(id: string, actual: any) {
@@ -125,7 +135,7 @@ export class InferiorCollectionComponent implements OnInit {
     for (let i = 0; i < this.gallery.length; i++) {
       const element = this.gallery[i];
       if (element.idItem == this.actualItem.idItem) {
-        if (i+1 < this.gallery.length)
+        if (i + 1 < this.gallery.length)
           this.actualItem = this.gallery[i + 1];
         else {
           this.actualItem = this.gallery[0]
@@ -142,7 +152,7 @@ export class InferiorCollectionComponent implements OnInit {
         if (i > 0)
           this.actualItem = this.gallery[i - 1];
         else {
-          this.actualItem = this.gallery[this.gallery.length -1]
+          this.actualItem = this.gallery[this.gallery.length - 1]
         }
         break
       }
@@ -183,6 +193,11 @@ export class InferiorCollectionComponent implements OnInit {
   see_more() {
     this.isHide = !this.isHide;
     return this.isHide;
+  }
+
+  getHeigth(){
+    let value = document.getElementById('item').offsetWidth;
+    return value-10;
   }
 
 }

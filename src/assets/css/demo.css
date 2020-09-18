@@ -144,3 +144,7 @@ p>img {
 .card-text {
   text-align: justify;
 }
+
+p em img{
+  max-width: 100%;
+}

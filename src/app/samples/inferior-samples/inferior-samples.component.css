@@ -166,3 +166,20 @@ a{
         max-width: 220px ;
   }
 }
+
+@media(max-width: 990px){
+  .col-md-4{
+    max-width: 25% !important;
+  }
+}
+
+@media(max-width: 480px){
+  .col-6{
+    max-width: 50% !important;
+  }
+}
+
+.col-6{
+  padding: 5px;
+  flex: none;
+}

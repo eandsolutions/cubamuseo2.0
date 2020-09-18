@@ -13,9 +13,9 @@
                         </h5>
                         <section id="tabs" class="project-tab">
                             <div class="container">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <nav>
+                                <div id='cont' class="row">
+                                    <div  class="col-md-12">
+                                        <nav >
                                             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist"
                                                 style="max-width: 350px;width: max-content;padding: 0;">
                                                 <a style="font-size: 15px;" class="nav-item nav-link active"
@@ -47,18 +47,18 @@
                                             </div>
                                             <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                                 aria-labelledby="nav-profile-tab">
-                                                <div class="container" style="margin-top: 22px;">
-                                                    <div *ngIf="collection.carpeta"
-                                                        class="row text-center justify-content-center"
-                                                        style="align-items: end;">
+                                                <div  class="container" style="margin-top: 22px;">
+                                                    <div *ngIf="collection.carpeta && collection.cantImges != 0"
+                                                        class="row text-center justify-content-center" 
+                                                        style="align-items: flex-end;">
 
-                                                        <div class=" col-lg-2 col-md-4 col-6" style="padding: 5px;"
+                                                        <div id="item" class=" col-lg-2 col-md-4 col-6" [ngStyle]="{'max-width': 100/collection.cantImages+'%'}"
                                                             *ngFor="let item of gallery">
                                                             <a class=" tooltiptext d-block mb-2 h-100"
                                                                 style="text-align: center;"
                                                                 (click)="openModal('custom-modal-1', item)">
                                                                 <img class="img-fluid img-thumbnail"
-                                                                    style=" cursor: pointer; max-height: 80px;"
+                                                                    style=" cursor: pointer;" [ngStyle]="{'max-height': getHeigth()+'px'}"
                                                                     src="{{config.serverNodeLocation}}images/2/{{collection.carpeta}}/{{item.imagen}}/collection/{{getSection()}}"
                                                                     alt="">
                                                                 <p [innerHTML]="item.titulo"></p>
