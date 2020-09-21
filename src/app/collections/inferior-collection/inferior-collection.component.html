@@ -207,12 +207,12 @@
     <div class="container-fluid center" style="width: max-content;">
         <div class="row" style="justify-content: center; display: block;">
 
-            <div class="card card-zoom-inferior" style="padding: 60px; margin-top: 0" *ngIf="collection.carpeta">
+            <div class="card card-zoom-inferior" style="padding: 90px; margin-top: 0; align-items: center;" *ngIf="collection.carpeta">
                 <button style="position: absolute; right: 3px; top: 0; z-index: 2;"
                     class="btn btn-white btn-round btn-just-icon" (click)="closeModal('custom-modal-zoom');">
                     <i class="material-icons">close</i>
                 </button>
-                <div class="card-title" style="font-weight: 800; height: 80px;"
+                <div style="font-weight: 800; position: absolute; top: 17px;text-align: center;"
                     [innerHTML]="actualItem.nombre+' | '+ actualItem.titulo">
 
                 </div>
