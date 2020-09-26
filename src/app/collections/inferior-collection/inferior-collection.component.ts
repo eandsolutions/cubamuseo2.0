@@ -64,15 +64,28 @@ export class InferiorCollectionComponent implements OnInit {
   initCollection(id:number){
     this.collectionService.getCategoryById(id).subscribe(
       (data: any) => {
-        this.collection = {
-          descripcion: data.descripcion,
-          titulo: data.titulo,
-          imagen: data.imagen,
-          nombre: data.nombre,
-          carpeta: data.carpeta,
-          id: data.idCategoria,
-          cantImages: data.cantImagenes
+        if(data.nombre){
+          this.collection = {
+            descripcion: data.descripcion,
+            titulo: data.titulo,
+            imagen: data.imagen,
+            nombre: data.nombre,
+            carpeta: data.carpeta,
+            id: data.idCategoria,
+            cantImages: data.cantImagenesFila
+          }
+        }else{
+          this.collection = {
+            descripcion: data[0].descripcion,
+            titulo: data[0].titulo,
+            imagen: data[0].imagen,
+            nombre: data[0].nombre,
+            carpeta: data[0].carpeta,
+            id: data[0].idCategoria,
+            cantImages: data[0].cantImagenesFila
+          }
         }
+      
     
         this.initGalery()
       }, err => {
@@ -116,7 +129,13 @@ export class InferiorCollectionComponent implements OnInit {
     if (data == 0) {
       return 0
     } else {
-      return JSON.parse(data).nombre
+      if (this.enviromentVariable.getLanguage() === 'es') {
+         console.log(JSON.parse(data).nombre);
+        return JSON.parse(data).nombre
+       
+      } else {
+        return JSON.parse(data).nombre_es
+      }
     }
 
   }

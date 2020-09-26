@@ -59,10 +59,18 @@ export class SamplesComponent implements OnInit {
   initComponent() {
     this.collectionService.getCollectionText(3).subscribe(
       (data: any) => {
-        this.homeData = {
-          titulo: data.nombre,
-          descripcion: data.descripcion,
-          imagen: data.imagen
+        if(data.nombre){
+          this.homeData = {
+            titulo: data.nombre,
+            descripcion: data.descripcion,
+            imagen: data.imagen
+          }
+        }else{
+           this.homeData={
+            titulo: data[0].nombre,
+            descripcion: data[0].descripcion,
+            imagen: data[0].imagen
+           } 
         }
       }, err => {
 
@@ -90,8 +98,6 @@ export class SamplesComponent implements OnInit {
       descripcion:'',
       publicada:1,
       orden:''
-
-
     });
     this.initSections();
     this.initComponent();

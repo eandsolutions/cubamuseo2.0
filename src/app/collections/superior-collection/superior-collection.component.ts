@@ -22,8 +22,8 @@ export class SuperiorCollectionComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     public enviromentVariable: EnviromentVariableServiceService,
     private collectionService: CollectionServiceService,
-    private router:Router
-    ) {
+    private router: Router
+  ) {
     this.collection = {
       descripcion: '',
       titulo: '',
@@ -41,13 +41,25 @@ export class SuperiorCollectionComponent implements OnInit {
         if (data.id)
           this.collectionService.getSectionById(data.id).subscribe(
             (data: any) => {
-              this.collection = {
-                descripcion: data.descripcion,
-                titulo: data.titulo,
-                imagen: data.imagen,
-                nombre: data.nombre,
-                id: data.idSeccion
+              if (data.nombre) {
+                this.collection = {
+                  descripcion: data.descripcion,
+                  titulo: data.titulo,
+                  imagen: data.imagen,
+                  nombre: data.nombre,
+                  id: data.idSeccion
+                }
+              } else {
+                this.collection = {
+                  descripcion: data[0].descripcion,
+                  titulo: data[0].titulo,
+                  imagen: data[0].imagen,
+                  nombre: data[0].nombre,
+                  nombre_es:data[0].nombre_es,
+                  id: data[0].idSeccion
+                }
               }
+
 
               this.initGalery()
               console.log(this.collection.nombre);
@@ -78,49 +90,53 @@ export class SuperiorCollectionComponent implements OnInit {
     this.collectionService.getSectionCategory(this.collection.id).subscribe(
       (data: any[]) => {
         data.forEach(element => {
-          if(element.sigloXIX.data[0] == 1){
+          if (element.sigloXIX.data[0] == 1) {
             this.gallery.push(element)
-          }else{
+          } else {
             this.galleryXX.push(element)
           }
-        });     
+        });
       }, err => {
       }
     )
   }
 
   getSection() {
-    let data:any = this.enviromentVariable.getSection()
-    if(data == 0){
+    let data: any = this.enviromentVariable.getSection()
+    if (data == 0) {
       return 0
-    }else{
-      return JSON.parse(data).nombre
+    } else {
+      if (this.enviromentVariable.getLanguage() === 'es') {
+        return JSON.parse(data).nombre
+      } else {
+        return JSON.parse(data).nombre_es
+      }
     }
-    
+
   }
 
-  setBreadcrumb(item){
-    this.enviromentVariable.breadcrumbList[2]={
-      name:item.nombre,
-      path:'/inferior-collection/'+ item.idCategoria
+  setBreadcrumb(item) {
+    this.enviromentVariable.breadcrumbList[2] = {
+      name: item.nombre,
+      path: '/inferior-collection/' + item.idCategoria
     };
     this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
   }
 
-  initBreadcrumb(){
-    let data:any = this.enviromentVariable.getSection();
-    this.enviromentVariable.breadcrumbList[1]={
+  initBreadcrumb() {
+    let data: any = this.enviromentVariable.getSection();
+    this.enviromentVariable.breadcrumbList[1] = {
       name: JSON.parse(data).nombre,
-      path:'/superior-collection/'+  JSON.parse(data).idSeccion
+      path: '/superior-collection/' + JSON.parse(data).idSeccion
     };
-    this.enviromentVariable.breadcrumbList.splice(2,1);
+    this.enviromentVariable.breadcrumbList.splice(2, 1);
     this.enviromentVariable.setBreadcrumb(this.enviromentVariable.breadcrumbList);
   }
 
   ngOnInit(): void {
     this.enviromentVariable.actualPage = 'collection';
     this.initBreadcrumb();
-   
+
   }
-  
+
 }

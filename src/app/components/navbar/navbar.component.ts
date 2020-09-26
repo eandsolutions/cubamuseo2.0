@@ -37,6 +37,9 @@ export class NavbarComponent implements OnInit {
 
     change(language) {
         this.translate.use(language);
+        this.enviromentVariable.setLanguage(language);
+        window.location.reload();
+
     }
     ngOnInit() {
         //this.listTitles = ROUTES.filter(listTitle => listTitle);

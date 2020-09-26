@@ -1,3 +1,4 @@
+import { EnviromentVariableServiceService } from 'app/core/service/enviroment-variable-service.service';
 import { Injectable  } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConfigServiceService } from './config-service.service';
@@ -9,25 +10,28 @@ export class CollectionServiceService {
   collectionList: any;
   collectionCategoryList: any;
   collectionPagesList: any;
+  lang:any;
 
   constructor(
     public http: HttpClient, 
-    private config: ConfigServiceService) {
+    private config: ConfigServiceService,
+    public enviromentVariable: EnviromentVariableServiceService) {
     this.collectionList = [];
     this.collectionCategoryList = [];
     this.collectionPagesList = [];
+    this.lang= enviromentVariable.getLanguage();
    }
    //Texto e imagen de inicio de las colecciones
    getCollectionText(id) {
-    return this.http.get(this.config.serverNodeLocation + 'text/' + id);
+    return this.http.get(this.config.serverNodeLocation + 'text/'  + this.lang +'/' + id);
   }
 
   getCategoryById(id) {
-     return this.http.get(this.config.serverNodeLocation + 'category/' + id);
+     return this.http.get(this.config.serverNodeLocation + 'category/' + this.lang +'/' + id);
    }
 
    getSectionById(id){
-    return this.http.get(this.config.serverNodeLocation + 'section/' + id);
+    return this.http.get(this.config.serverNodeLocation + 'section/' + this.lang +'/' + id);
    }
 
 
@@ -37,7 +41,7 @@ export class CollectionServiceService {
 
 
    getCollectionItemByCategory(id) {
-     return this.http.get(this.config.serverNodeLocation + 'category-item/byCategory/' + id);
+     return this.http.get(this.config.serverNodeLocation + 'category-item/byCategory/' + this.lang +'/' + id);
    }
 
 
@@ -47,10 +51,10 @@ export class CollectionServiceService {
 
 
   getSectionCategory(id){
-    return this.http.get(this.config.serverNodeLocation + 'section-category/bySection/'+ id);
+    return this.http.get(this.config.serverNodeLocation + 'section-category/bySection/' + this.lang +'/' + id);
   }
   
   getCollectionsSections() {
-    return this.http.get(this.config.serverNodeLocation + 'section');
+    return this.http.get(this.config.serverNodeLocation + 'section/' + this.lang);
   }
 }

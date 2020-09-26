@@ -58,10 +58,18 @@ export class StampComponent implements OnInit {
   initComponent() {
     this.collectionService.getCollectionText(2).subscribe(
       (data: any) => {
-        this.homeData = {
-          titulo: data.nombre,
-          descripcion: data.descripcion,
-          imagen: data.imagen
+        if(data.nombre){
+          this.homeData = {
+            titulo: data.nombre,
+            descripcion: data.descripcion,
+            imagen: data.imagen
+          }
+        }else{
+           this.homeData={
+            titulo: data[0].nombre,
+            descripcion: data[0].descripcion,
+            imagen: data[0].imagen
+           } 
         }
       }, err => {
 

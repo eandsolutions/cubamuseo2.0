@@ -9,6 +9,7 @@ export class EnviromentVariableServiceService {
 
   sections: any[];
   breadcrumbList:any[];
+  lang:any;
   link: any;
   actualPage: string;
   googlePlus: string = '';
@@ -22,10 +23,8 @@ export class EnviromentVariableServiceService {
     this.breadcrumbList[0]={
         name:'Inicio',
         path:'/home'
-    };
+    };   
   }
-
-  
 
   setSections(sections: any[]) {
     this.sections = sections;
@@ -92,6 +91,16 @@ export class EnviromentVariableServiceService {
   deleteSection() {
     window.localStorage.removeItem('section');
   }
+
+  setLanguage(lang:any){
+    window.localStorage.setItem('lang', JSON.stringify(lang));
+  }
+  getLanguage() {
+    if (window.localStorage.getItem('lang'))
+      return JSON.parse(window.localStorage.getItem('lang'));
+    return 0
+  }
+
 
   /* setLevel(fatherLevel, father, section) {
 
