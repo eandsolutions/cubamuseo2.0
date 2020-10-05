@@ -60,7 +60,6 @@ export class InferiorSamplesComponent implements OnInit {
                 id: data.idMuestra,
                 cantImages:data.cantImagenes
               }
-
               this.initGalery();
               this.enviromentVariable.actualPage = 'samples';
               this.enviromentVariable.sections = [];
